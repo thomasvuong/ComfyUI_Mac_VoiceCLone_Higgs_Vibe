@@ -1,0 +1,15 @@
+[project]
+name = "comfyui-background-edit"
+description = "ComfyUI nodes for editing background of images/videos with CUDA acceleration support."
+version = "1.1.0"
+license = { file = "LICENSE" }
+dependencies = ["torch", "torchvision"]
+
+[project.urls]
+Repository = "https://github.com/yondonfu/ComfyUI-Background-Edit"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = "yondonfu"
+DisplayName = "ComfyUI-Background-Edit"
+Icon = ""

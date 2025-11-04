@@ -1,0 +1,15 @@
+LICENSE
+requirements.txt
+pyproject.toml
+__init__.py
+README.md
+.gitignore
+nodes/gaussian_blur.py
+nodes/background_color.py
+nodes/__init__.py
+nodes/composite.py
+examples/depth-bg-blue-output.png
+examples/depth-bg-black-output.png
+examples/realtime-depth-bg-blur-workflow.json
+examples/input.jpg
+examples/depth-bg-blur-output.png

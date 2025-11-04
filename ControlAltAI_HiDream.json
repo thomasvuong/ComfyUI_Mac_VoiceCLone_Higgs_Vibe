@@ -1,0 +1,6249 @@
+{
+  "id": "01d66ae9-78be-4a8d-b737-24eee5e1d447",
+  "revision": 0,
+  "last_node_id": 495,
+  "last_link_id": 880,
+  "nodes": [
+    {
+      "id": 112,
+      "type": "UpscaleModelLoader",
+      "pos": [
+        -2440,
+        560
+      ],
+      "size": [
+        300,
+        60
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "UPSCALE_MODEL",
+          "type": "UPSCALE_MODEL",
+          "links": [
+            228
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.28",
+        "Node name for S&R": "UpscaleModelLoader"
+      },
+      "widgets_values": [
+        "4xFFHQDAT.pth"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 108,
+      "type": "UpscaleModelLoader",
+      "pos": [
+        -2440,
+        440
+      ],
+      "size": [
+        300,
+        60
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "UPSCALE_MODEL",
+          "type": "UPSCALE_MODEL",
+          "links": [
+            227
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.28",
+        "Node name for S&R": "UpscaleModelLoader"
+      },
+      "widgets_values": [
+        "4xLexicaDAT2_otf.pth"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 111,
+      "type": "ChooseUpscaleModel",
+      "pos": [
+        -2062.800048828125,
+        430
+      ],
+      "size": [
+        367.79998779296875,
+        78
+      ],
+      "flags": {},
+      "order": 43,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "upscale_model_1",
+          "type": "UPSCALE_MODEL",
+          "link": 227
+        },
+        {
+          "name": "upscale_model_2",
+          "type": "UPSCALE_MODEL",
+          "link": 228
+        }
+      ],
+      "outputs": [
+        {
+          "name": "upscale_model",
+          "type": "UPSCALE_MODEL",
+          "links": [
+            226
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "controlaltai-nodes",
+        "ver": "404b22d09283b2ece48da6c4e024d4d6beaecb07",
+        "Node name for S&R": "ChooseUpscaleModel"
+      },
+      "widgets_values": [
+        false
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 141,
+      "type": "OllamaOptionsV2",
+      "pos": [
+        -1550,
+        70
+      ],
+      "size": [
+        286.103515625,
+        754
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "options",
+          "type": "OLLAMA_OPTIONS",
+          "links": [
+            268,
+            280,
+            294
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-ollama",
+        "ver": "f28d6e2d0a896cf843f71c3997b59ec12dcefb65",
+        "Node name for S&R": "OllamaOptionsV2"
+      },
+      "widgets_values": [
+        false,
+        0,
+        false,
+        0.1,
+        false,
+        5,
+        false,
+        2048,
+        false,
+        64,
+        false,
+        1.1,
+        false,
+        0.8,
+        false,
+        486362021,
+        "fixed",
+        false,
+        "",
+        false,
+        1,
+        false,
+        -1,
+        false,
+        40,
+        false,
+        0.9,
+        false,
+        0,
+        false
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 40,
+      "type": "CLIPTextEncode",
+      "pos": [
+        2830,
+        650
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 48,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 112
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            447,
+            650,
+            680
+          ]
+        }
+      ],
+      "title": "Negative Prompt",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.28",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "bad, ugly, jpeg artifacts, bad quality, watermarks, signatures, bad anatomy"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 75,
+      "type": "Seed (rgthree)",
+      "pos": [
+        2900,
+        50
+      ],
+      "size": [
+        315,
+        130
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "dir": 4,
+          "name": "SEED",
+          "shape": 3,
+          "type": "INT",
+          "links": [
+            449,
+            645,
+            652
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "rgthree-comfy",
+        "ver": "ab37a0bd377a4443d04896b34a9491ddb1cb014b"
+      },
+      "widgets_values": [
+        919666649273414,
+        null,
+        null,
+        null
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 148,
+      "type": "CLIPTextEncodeHiDream",
+      "pos": [
+        2830,
+        350
+      ],
+      "size": [
+        400,
+        250
+      ],
+      "flags": {},
+      "order": 76,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 325
+        },
+        {
+          "name": "clip_l",
+          "type": "STRING",
+          "widget": {
+            "name": "clip_l"
+          },
+          "link": 876
+        },
+        {
+          "name": "clip_g",
+          "type": "STRING",
+          "widget": {
+            "name": "clip_g"
+          },
+          "link": 877
+        },
+        {
+          "name": "t5xxl",
+          "type": "STRING",
+          "widget": {
+            "name": "t5xxl"
+          },
+          "link": 865
+        },
+        {
+          "name": "llama",
+          "type": "STRING",
+          "widget": {
+            "name": "llama"
+          },
+          "link": 866
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            446
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.34",
+        "Node name for S&R": "CLIPTextEncodeHiDream"
+      },
+      "widgets_values": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 330,
+      "type": "VAEEncode",
+      "pos": [
+        5040,
+        1160
+      ],
+      "size": [
+        140,
+        46
+      ],
+      "flags": {},
+      "order": 85,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "pixels",
+          "type": "IMAGE",
+          "link": 670
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 654
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            655
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.34",
+        "Node name for S&R": "VAEEncode"
+      },
+      "widgets_values": [],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 329,
+      "type": "SetLatentNoiseMask",
+      "pos": [
+        5220,
+        1160
+      ],
+      "size": [
+        180.74765014648438,
+        46
+      ],
+      "flags": {},
+      "order": 86,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 655
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 840
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            656
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.34",
+        "Node name for S&R": "SetLatentNoiseMask"
+      },
+      "widgets_values": [],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 238,
+      "type": "PreviewBridge",
+      "pos": [
+        8610,
+        0
+      ],
+      "size": [
+        400,
+        460
+      ],
+      "flags": {},
+      "order": 100,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 467
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            480
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            471
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-impact-pack",
+        "ver": "5a2adda58007f153a32b57bebeac1d2b2def2e3d",
+        "Node name for S&R": "PreviewBridge"
+      },
+      "widgets_values": [
+        "$238-0",
+        false,
+        "never"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 106,
+      "type": "ImageUpscaleWithModel",
+      "pos": [
+        10120,
+        140
+      ],
+      "size": [
+        269.7744140625,
+        46
+      ],
+      "flags": {},
+      "order": 104,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "upscale_model",
+          "type": "UPSCALE_MODEL",
+          "link": 226
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 512
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            351,
+            355
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.28",
+        "Node name for S&R": "ImageUpscaleWithModel"
+      },
+      "widgets_values": [],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 243,
+      "type": "PreviewImage",
+      "pos": [
+        7280,
+        470
+      ],
+      "size": [
+        450,
+        430
+      ],
+      "flags": {},
+      "order": 95,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 484
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.34",
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": [],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 130,
+      "type": "PreviewImage",
+      "pos": [
+        9340,
+        -30
+      ],
+      "size": [
+        440,
+        440
+      ],
+      "flags": {},
+      "order": 102,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 472
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.28",
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": [],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 214,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        -2150,
+        -420
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            415
+          ]
+        }
+      ],
+      "title": "Text Prompt",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.34",
+        "Node name for S&R": "PrimitiveStringMultiline"
+      },
+      "widgets_values": [
+        "A 3d scene with a cute cat, cozy environment, with glasses, sitting on a chair working on a laptop kept on the desk, on the back of the laptop it says \"Control Alt AI\". A thought bubble with the text \"Learning HiDream\". "
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 232,
+      "type": "RandomNoise",
+      "pos": [
+        3800,
+        -50
+      ],
+      "size": [
+        270,
+        82
+      ],
+      "flags": {},
+      "order": 44,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "noise_seed",
+          "type": "INT",
+          "widget": {
+            "name": "noise_seed"
+          },
+          "link": 449
+        }
+      ],
+      "outputs": [
+        {
+          "name": "NOISE",
+          "type": "NOISE",
+          "links": [
+            448
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.34",
+        "Node name for S&R": "RandomNoise"
+      },
+      "widgets_values": [
+        781262402527515,
+        "fixed"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 140,
+      "type": "OllamaConnectivityV2",
+      "pos": [
+        -1580,
+        -120
+      ],
+      "size": [
+        310,
+        130
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "connection",
+          "type": "OLLAMA_CONNECTIVITY",
+          "links": [
+            267,
+            279,
+            309
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-ollama",
+        "ver": "f28d6e2d0a896cf843f71c3997b59ec12dcefb65",
+        "Node name for S&R": "OllamaConnectivityV2"
+      },
+      "widgets_values": [
+        "http://127.0.0.1:11434",
+        "gemma3:27b-it-q4_K_M",
+        0,
+        "minutes"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 163,
+      "type": "ShowText|pysssss",
+      "pos": [
+        -470,
+        -330
+      ],
+      "size": [
+        530,
+        350
+      ],
+      "flags": {},
+      "order": 56,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 296
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": [
+            431
+          ]
+        }
+      ],
+      "title": "Text LLM",
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "aac13aa7ce35b07d43633c3bbe654a38c00d74f5",
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "Render a warmly lit, hyperrealistic 3D scene depicting a fluffy, calico cat with oversized, round glasses perched on its nose, intently focused on a silver laptop displaying the phrase “Control Alt AI” on its back, the laptop resting on a worn wooden desk cluttered with scattered pencils, a half-empty mug of steaming chamomile tea, and a soft, knitted blanket draped over the chair back; the cat is comfortably seated in a plush, velvet armchair positioned before a tall, arched window overlooking a rain-streaked cityscape, and above its head floats a delicate, translucent thought bubble containing the playfully scrawled text “Learning HiDream” in a whimsical, handwritten font, all bathed in the gentle glow of a nearby table lamp casting long, inviting shadows across the cozy room, suggesting a peaceful, intellectually stimulating atmosphere and a hint of feline curiosity about the world of artificial intelligence."
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 371,
+      "type": "MarkdownNote",
+      "pos": [
+        2310,
+        20
+      ],
+      "size": [
+        360,
+        260
+      ],
+      "flags": {
+        "collapsed": false,
+        "pinned": true
+      },
+      "order": 6,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [],
+      "title": "GGUF Model Info",
+      "properties": {},
+      "widgets_values": [
+        "### 🦾 GGUF Quantized Models in ComfyUI\nTo use **GGUF Quantized Models**, install the 🧩 **GGUF custom node** and replace the following nodes with their GGUF versions:\n\n| Comfy Node | GGUF Node Version |\n|---|---|\n| Load Diffusion Model | UNET Loader (GGUF) |\n| QuadrupleCLIPLoader | QuadrupleCLIPLoader (GGUF) |\n\n### 🌐 Useful Links\n\n* [HiDream Full GGUF Models](https://huggingface.co/city96/HiDream-I1-Full-gguf/tree/main)\n* [HiDream Dev GGUF Models](https://huggingface.co/city96/HiDream-I1-Dev-gguf/tree/main)\n* [HiDream Fast GGUF Models](https://huggingface.co/city96/HiDream-I1-Fast-gguf/tree/main)\n* [HiDream E1 Full GGUF Models](https://huggingface.co/ND911/HiDream_e1_full_bf16-ggufs/tree/main)"
+      ],
+      "color": "#323",
+      "bgcolor": "#535"
+    },
+    {
+      "id": 419,
+      "type": "FloatConstant",
+      "pos": [
+        3250,
+        40
+      ],
+      "size": [
+        210,
+        58
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "FLOAT",
+          "links": [
+            764,
+            765
+          ]
+        }
+      ],
+      "title": "Text & Image CFG ",
+      "properties": {
+        "cnr_id": "comfyui-kjnodes",
+        "ver": "0b78aedaeee2c467dbf675d98fee86d0482df7a5",
+        "Node name for S&R": "FloatConstant"
+      },
+      "widgets_values": [
+        4.000000000000001
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 55,
+      "type": "VAELoader",
+      "pos": [
+        3240,
+        950
+      ],
+      "size": [
+        310,
+        60
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            107,
+            182,
+            348,
+            654,
+            661,
+            715,
+            854
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.28",
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "ae.safetensors"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 454,
+      "type": "ThreeWaySwitch",
+      "pos": [
+        3490,
+        500
+      ],
+      "size": [
+        270,
+        98
+      ],
+      "flags": {},
+      "order": 54,
+      "mode": 2,
+      "inputs": [
+        {
+          "label": "Low",
+          "name": "input_1",
+          "shape": 7,
+          "type": "*",
+          "link": 817
+        },
+        {
+          "label": "Medium",
+          "name": "input_2",
+          "shape": 7,
+          "type": "*",
+          "link": 818
+        },
+        {
+          "label": "High",
+          "name": "input_3",
+          "shape": 7,
+          "type": "*",
+          "link": 819
+        },
+        {
+          "name": "selection_setting",
+          "type": "INT",
+          "widget": {
+            "name": "selection_setting"
+          },
+          "link": 822
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": [
+            821
+          ]
+        }
+      ],
+      "title": "Style Denoise Switch",
+      "properties": {
+        "cnr_id": "controlaltai-nodes",
+        "ver": "65377b8c08de64af0086c84dd9364be87eb2f549",
+        "Node name for S&R": "ThreeWaySwitch"
+      },
+      "widgets_values": [
+        1
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 421,
+      "type": "ThreeWaySwitch",
+      "pos": [
+        3800,
+        480
+      ],
+      "size": [
+        270,
+        98
+      ],
+      "flags": {},
+      "order": 63,
+      "mode": 2,
+      "inputs": [
+        {
+          "label": "Text",
+          "name": "input_1",
+          "shape": 7,
+          "type": "*",
+          "link": 771
+        },
+        {
+          "label": "Image",
+          "name": "input_2",
+          "shape": 7,
+          "type": "*",
+          "link": 772
+        },
+        {
+          "label": "Style",
+          "name": "input_3",
+          "shape": 7,
+          "type": "*",
+          "link": 821
+        },
+        {
+          "name": "selection_setting",
+          "type": "INT",
+          "widget": {
+            "name": "selection_setting"
+          },
+          "link": 774
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": [
+            773
+          ]
+        }
+      ],
+      "title": "Denoise Switch",
+      "properties": {
+        "cnr_id": "controlaltai-nodes",
+        "ver": "65377b8c08de64af0086c84dd9364be87eb2f549",
+        "Node name for S&R": "ThreeWaySwitch"
+      },
+      "widgets_values": [
+        1
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 150,
+      "type": "ShowText|pysssss",
+      "pos": [
+        1550,
+        300
+      ],
+      "size": [
+        390,
+        210
+      ],
+      "flags": {},
+      "order": 72,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 782
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "title": "LLM Summary",
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "aac13aa7ce35b07d43633c3bbe654a38c00d74f5",
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "Tabby cat, orange koi fish, greenish-blue water, ripples, blurred foliage, soft lighting, direct gaze."
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 340,
+      "type": "SaveImage",
+      "pos": [
+        6090,
+        1150
+      ],
+      "size": [
+        966.615966796875,
+        1025.3206787109375
+      ],
+      "flags": {},
+      "order": 89,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 673
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.28"
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 426,
+      "type": "FloatConstant",
+      "pos": [
+        3250,
+        530
+      ],
+      "size": [
+        210,
+        58
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "FLOAT",
+          "links": [
+            818
+          ]
+        }
+      ],
+      "title": "Style Denoise Medium",
+      "properties": {
+        "cnr_id": "comfyui-kjnodes",
+        "ver": "0b78aedaeee2c467dbf675d98fee86d0482df7a5",
+        "Node name for S&R": "FloatConstant"
+      },
+      "widgets_values": [
+        0.7000000000000002
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 455,
+      "type": "FloatConstant",
+      "pos": [
+        3250,
+        650
+      ],
+      "size": [
+        210,
+        58
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "FLOAT",
+          "links": [
+            819
+          ]
+        }
+      ],
+      "title": "Style Denoise High",
+      "properties": {
+        "cnr_id": "comfyui-kjnodes",
+        "ver": "0b78aedaeee2c467dbf675d98fee86d0482df7a5",
+        "Node name for S&R": "FloatConstant"
+      },
+      "widgets_values": [
+        0.8000000000000002
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 228,
+      "type": "SamplerCustomAdvanced",
+      "pos": [
+        4440,
+        320
+      ],
+      "size": [
+        202.53378295898438,
+        106
+      ],
+      "flags": {},
+      "order": 80,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "noise",
+          "type": "NOISE",
+          "link": 448
+        },
+        {
+          "name": "guider",
+          "type": "GUIDER",
+          "link": 444
+        },
+        {
+          "name": "sampler",
+          "type": "SAMPLER",
+          "link": 443
+        },
+        {
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 442
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 778
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "LATENT",
+          "links": [
+            451,
+            831
+          ]
+        },
+        {
+          "name": "denoised_output",
+          "type": "LATENT",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.34",
+        "Node name for S&R": "SamplerCustomAdvanced"
+      },
+      "widgets_values": [],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 229,
+      "type": "BasicScheduler",
+      "pos": [
+        4110,
+        290
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 68,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 458
+        },
+        {
+          "name": "steps",
+          "type": "INT",
+          "widget": {
+            "name": "steps"
+          },
+          "link": 640
+        },
+        {
+          "name": "denoise",
+          "type": "FLOAT",
+          "widget": {
+            "name": "denoise"
+          },
+          "link": 773
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SIGMAS",
+          "type": "SIGMAS",
+          "links": [
+            442
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.34",
+        "Node name for S&R": "BasicScheduler"
+      },
+      "widgets_values": [
+        "sgm_uniform",
+        50,
+        1
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 230,
+      "type": "KSamplerSelect",
+      "pos": [
+        3800,
+        230
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "SAMPLER",
+          "type": "SAMPLER",
+          "links": [
+            443,
+            454
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.34",
+        "Node name for S&R": "KSamplerSelect"
+      },
+      "widgets_values": [
+        "dpmpp_2m"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 87,
+      "type": "FloatConstant",
+      "pos": [
+        6280,
+        360
+      ],
+      "size": [
+        210,
+        58
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "FLOAT",
+          "links": [
+            191,
+            643
+          ]
+        }
+      ],
+      "title": "Upscale By Factor",
+      "properties": {
+        "cnr_id": "comfyui-kjnodes",
+        "ver": "a5bd3c86c8ed6b83c55c2d0e7a59515b15a0137f",
+        "Node name for S&R": "FloatConstant"
+      },
+      "widgets_values": [
+        1.2500000000000002
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 373,
+      "type": "MarkdownNote",
+      "pos": [
+        690,
+        -340
+      ],
+      "size": [
+        410,
+        350
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 13,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Text Bridge Node",
+      "properties": {},
+      "widgets_values": [
+        "### 🔗 Text Bridge Node — Function & Usage\n\nThe **Text Bridge** node is a utility for managing and editing prompt text within your ComfyUI workflow. It offers two flexible behaviors:\n\n---\n\n### 1. 🚦 Pass-Through Mode  \n- **Leave the field empty** to simply pass the input prompt through unchanged.\n- Useful when you want to forward a prompt from an earlier node without modification.\n\n### 2. ✍️ Override Mode  \n- **Enter or paste a custom prompt** in the text field to override the pass-through.\n- This lets you quickly edit, customize, or replace the prompt at this point in your workflow.\n\n---\n\n> 💡 **Tip:**  \n> Use the Text Bridge node to conveniently switch between using upstream prompts and custom instructions—no need to rewire your workflow!"
+      ],
+      "color": "#332922",
+      "bgcolor": "#593930"
+    },
+    {
+      "id": 405,
+      "type": "TextBridge",
+      "pos": [
+        170,
+        990
+      ],
+      "size": [
+        450,
+        280
+      ],
+      "flags": {},
+      "order": 59,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "passthrough_text",
+          "shape": 7,
+          "type": "STRING",
+          "link": 880
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "STRING",
+          "links": [
+            812
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "controlaltai-nodes",
+        "ver": "65377b8c08de64af0086c84dd9364be87eb2f549",
+        "Node name for S&R": "TextBridge"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#332922",
+      "bgcolor": "#593930"
+    },
+    {
+      "id": 403,
+      "type": "PreviewImage",
+      "pos": [
+        -1280,
+        980
+      ],
+      "size": [
+        330,
+        270
+      ],
+      "flags": {},
+      "order": 61,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 735
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.39",
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": [],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 323,
+      "type": "ImpactInt",
+      "pos": [
+        3800,
+        360
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 14,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            640,
+            837
+          ]
+        }
+      ],
+      "title": "Steps",
+      "properties": {
+        "cnr_id": "comfyui-impact-pack",
+        "ver": "5a2adda58007f153a32b57bebeac1d2b2def2e3d",
+        "Node name for S&R": "ImpactInt"
+      },
+      "widgets_values": [
+        50
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 404,
+      "type": "ShowText|pysssss",
+      "pos": [
+        -310,
+        980
+      ],
+      "size": [
+        450,
+        360
+      ],
+      "flags": {},
+      "order": 58,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 879
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "title": "Style LLM",
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "aac13aa7ce35b07d43633c3bbe654a38c00d74f5",
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "In a flat vector style, the illustration features a serene landscape with a cat swimming in calm waters. The cat is centrally positioned, with its head above water, detailed in smooth, clean lines and minimal shading. Surrounding the cat, numerous orange fish, depicted as simple, bold shapes, glide through the water, which is rendered in soft gradients to suggest depth. The background is composed of muted green and gray tones to indicate distant, abstracted foliage and rocks. The overall composition is balanced, using a harmonious color palette and straightforward geometric forms."
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 379,
+      "type": "ImageResizeKJv2",
+      "pos": [
+        -1570,
+        980
+      ],
+      "size": [
+        270,
+        266
+      ],
+      "flags": {},
+      "order": 52,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 711
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 712
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 713
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            716,
+            735
+          ]
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-kjnodes",
+        "ver": "0b78aedaeee2c467dbf675d98fee86d0482df7a5",
+        "Node name for S&R": "ImageResizeKJv2"
+      },
+      "widgets_values": [
+        512,
+        512,
+        "bilinear",
+        "crop",
+        "0, 0, 0",
+        "center",
+        2,
+        "cpu"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 453,
+      "type": "IntegerSettingsAdvanced",
+      "pos": [
+        -1965,
+        860
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "setting_value",
+          "type": "INT",
+          "links": [
+            822
+          ]
+        }
+      ],
+      "title": "Style Denoise: Low, Medium, High",
+      "properties": {
+        "cnr_id": "controlaltai-nodes",
+        "ver": "65377b8c08de64af0086c84dd9364be87eb2f549",
+        "Node name for S&R": "IntegerSettingsAdvanced"
+      },
+      "widgets_values": [
+        false,
+        false,
+        true
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 9,
+      "type": "SaveImage",
+      "pos": [
+        5070,
+        -40
+      ],
+      "size": [
+        966.615966796875,
+        1025.3206787109375
+      ],
+      "flags": {},
+      "order": 84,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 51
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.28"
+      },
+      "widgets_values": [
+        "HiDream\\image"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 336,
+      "type": "ShowText|pysssss",
+      "pos": [
+        3260,
+        1170
+      ],
+      "size": [
+        460,
+        440
+      ],
+      "flags": {},
+      "order": 74,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 850
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "aac13aa7ce35b07d43633c3bbe654a38c00d74f5",
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "A father with short, black hair and large, expressive eyes stares intensely forward, his brow furrowed in a scowl and lips tightly pressed. He is wearing a faded, olive-green t-shirt, and his arms are crossed defensively across his chest, emphasizing his disgruntled posture. The style is highly stylized, with exaggerated features and smooth, plastic-like rendering, and the background is a solid, muted green, drawing all attention to the character. The lighting is soft and even, highlighting the contours of his face and emphasizing the textures of his hair and clothing."
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 471,
+      "type": "OpenAIChatNode",
+      "pos": [
+        2680,
+        1170
+      ],
+      "size": [
+        490,
+        800
+      ],
+      "flags": {},
+      "order": 71,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "images",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "files",
+          "shape": 7,
+          "type": "OPENAI_INPUT_FILES",
+          "link": null
+        },
+        {
+          "name": "advanced_options",
+          "shape": 7,
+          "type": "OPENAI_CHAT_CONFIG",
+          "link": 844
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 864
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            850,
+            851
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.39",
+        "Node name for S&R": "OpenAIChatNode"
+      },
+      "widgets_values": [
+        "\n",
+        false,
+        "gpt-4o"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 326,
+      "type": "LanPaint_KSampler",
+      "pos": [
+        5440,
+        1160
+      ],
+      "size": [
+        430,
+        390
+      ],
+      "flags": {},
+      "order": 87,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 646
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 651
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 650
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 656
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": 652
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            660
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "LanPaint",
+        "ver": "56bd6c04e89124cd06682b304245d6ddf8b20522",
+        "Node name for S&R": "LanPaint_KSampler",
+        "aux_id": "scraed/LanPaint"
+      },
+      "widgets_values": [
+        0,
+        "fixed",
+        50,
+        4,
+        "dpmpp_2m",
+        "sgm_uniform",
+        1,
+        5,
+        "Image First",
+        "LanPaint KSampler. For more info, visit https://github.com/scraed/LanPaint. If you find it useful, please give a star ⭐️!"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 328,
+      "type": "CLIPTextEncode",
+      "pos": [
+        4230,
+        1160
+      ],
+      "size": [
+        400,
+        240
+      ],
+      "flags": {},
+      "order": 77,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 649
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 648
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            651,
+            681
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.34",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 327,
+      "type": "TextBridge",
+      "pos": [
+        3750,
+        1160
+      ],
+      "size": [
+        450,
+        280
+      ],
+      "flags": {},
+      "order": 75,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "passthrough_text",
+          "shape": 7,
+          "type": "STRING",
+          "link": 851
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "STRING",
+          "links": [
+            648
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "controlaltai-nodes",
+        "ver": "65377b8c08de64af0086c84dd9364be87eb2f549",
+        "Node name for S&R": "TextBridge"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#332922",
+      "bgcolor": "#593930"
+    },
+    {
+      "id": 430,
+      "type": "Fast Groups Muter (rgthree)",
+      "pos": [
+        5090,
+        1450
+      ],
+      "size": [
+        300,
+        178
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 16,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OPT_CONNECTION",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "title": "Groups Control (Mute)",
+      "properties": {
+        "matchColors": "",
+        "matchTitle": "^Text LLM|Image LLM|Style LLM|HiDream Core|LanPaint|HiDream Upscale.*",
+        "showNav": true,
+        "sort": "custom alphabet",
+        "customSortAlphabet": "Text LLM,Image LLM,Style LLM,HiDream Core,LanPaint,HiDream Upscale",
+        "toggleRestriction": "default"
+      },
+      "color": "#323",
+      "bgcolor": "#535"
+    },
+    {
+      "id": 239,
+      "type": "PerturbationTexture",
+      "pos": [
+        9050,
+        -10
+      ],
+      "size": [
+        270,
+        246
+      ],
+      "flags": {},
+      "order": 101,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 480
+        },
+        {
+          "name": "mask",
+          "shape": 7,
+          "type": "MASK",
+          "link": 471
+        }
+      ],
+      "outputs": [
+        {
+          "name": "textured_image_output",
+          "type": "IMAGE",
+          "links": [
+            472,
+            511
+          ]
+        },
+        {
+          "name": "texture_layer",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "controlaltai-nodes",
+        "ver": "65377b8c08de64af0086c84dd9364be87eb2f549",
+        "Node name for S&R": "PerturbationTexture"
+      },
+      "widgets_values": [
+        0.5000000000000001,
+        10,
+        "Natural",
+        1,
+        0.25000000000000006,
+        false,
+        2043,
+        "fixed"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 225,
+      "type": "TextBridge",
+      "pos": [
+        90,
+        290
+      ],
+      "size": [
+        510,
+        310
+      ],
+      "flags": {},
+      "order": 65,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "passthrough_text",
+          "shape": 7,
+          "type": "STRING",
+          "link": 430
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "STRING",
+          "links": [
+            811
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "controlaltai-nodes",
+        "ver": "65377b8c08de64af0086c84dd9364be87eb2f549",
+        "Node name for S&R": "TextBridge"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#332922",
+      "bgcolor": "#593930"
+    },
+    {
+      "id": 110,
+      "type": "SaveImage",
+      "pos": [
+        10450,
+        -50
+      ],
+      "size": [
+        966.615966796875,
+        1025.3206787109375
+      ],
+      "flags": {},
+      "order": 105,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 351
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.28"
+      },
+      "widgets_values": [
+        "HiDream\\Final\\image"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 429,
+      "type": "Fast Groups Muter (rgthree)",
+      "pos": [
+        2440,
+        700
+      ],
+      "size": [
+        300,
+        178
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 17,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OPT_CONNECTION",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "title": "Groups Control (Mute)",
+      "properties": {
+        "matchColors": "",
+        "matchTitle": "^Text LLM|Image LLM|Style LLM|HiDream Core|LanPaint|HiDream Upscale.*",
+        "showNav": true,
+        "sort": "custom alphabet",
+        "customSortAlphabet": "Text LLM,Image LLM,Style LLM,HiDream Core,LanPaint,HiDream Upscale",
+        "toggleRestriction": "default"
+      },
+      "color": "#323",
+      "bgcolor": "#535"
+    },
+    {
+      "id": 467,
+      "type": "MarkdownNote",
+      "pos": [
+        -3090,
+        770
+      ],
+      "size": [
+        570,
+        570
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 18,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Settings",
+      "properties": {},
+      "widgets_values": [
+        "## 🧠 Text, Image or Style — Node Settings\n\nThis node lets you choose how the image is generated based on different input types:\n\n- **`setting_1` – Text to Image**  \n  Input a plain text description. The LLM will generate a compatible prompt and summary to create a new image.\n\n- **`setting_2` – Inspired by Reference**  \n  Upload a reference image. The AI generates a new image inspired by its composition, layout, or mood. This is useful when you want variation while keeping the essence of the reference.\n\n- **`setting_3` – Style Image to Image**  \n  Apply a new style to an existing image. You can restyle the whole image or just the subject (e.g., change style while keeping the pose and structure).\n\n---\n\n## 🧽 Style Denoise: Low, Medium, High\n\n- **Low** – Keeps the original image mostly unchanged. Good for subtle style overlays.\n- **Medium** – A balanced transformation.\n- **High** – Strongly applies the style, modifying the image significantly.\n\n> 🎯 Tip: Use **Low** when preserving the subject or composition is important.\n\n---\n\n## 🌀 Perturbation Pipeline\n\nPerturbation introduces micro-level noise and irregularities to help:\n\n- Break uniformity in AI-generated surfaces\n- Add texture and pixel-level realism\n- Simulate photographic grain or painted roughness\n\n> ✨ Great for making AI images feel more organic and less digital.\n\n---\n\n## 🩹 InPaint\n\nEnable this to selectively modify areas of an image:\n\n- Works with masks to edit only the selected area\n- Keeps the rest of the image untouched\n\n---\n"
+      ],
+      "color": "#323",
+      "bgcolor": "#535"
+    },
+    {
+      "id": 333,
+      "type": "VAEDecode",
+      "pos": [
+        5900,
+        1160
+      ],
+      "size": [
+        140,
+        46
+      ],
+      "flags": {},
+      "order": 88,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 660
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 661
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            673,
+            674
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.34",
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": [],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 170,
+      "type": "Image Comparer (rgthree)",
+      "pos": [
+        11510,
+        -530
+      ],
+      "size": [
+        1410,
+        1570
+      ],
+      "flags": {},
+      "order": 106,
+      "mode": 0,
+      "inputs": [
+        {
+          "dir": 3,
+          "name": "image_a",
+          "type": "IMAGE",
+          "link": 355
+        },
+        {
+          "dir": 3,
+          "name": "image_b",
+          "type": "IMAGE",
+          "link": 356
+        }
+      ],
+      "outputs": [],
+      "title": "Comparison",
+      "properties": {
+        "cnr_id": "rgthree-comfy",
+        "ver": "5288408220180af41ce50b0d29135e1ef5f83fdb",
+        "comparer_mode": "Slide"
+      },
+      "widgets_values": [
+        []
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 234,
+      "type": "SamplerCustomAdvanced",
+      "pos": [
+        8130,
+        80
+      ],
+      "size": [
+        202.53378295898438,
+        106
+      ],
+      "flags": {},
+      "order": 98,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "noise",
+          "type": "NOISE",
+          "link": 457
+        },
+        {
+          "name": "guider",
+          "type": "GUIDER",
+          "link": 684
+        },
+        {
+          "name": "sampler",
+          "type": "SAMPLER",
+          "link": 454
+        },
+        {
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 460
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 834
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "LATENT",
+          "links": [
+            462
+          ]
+        },
+        {
+          "name": "denoised_output",
+          "type": "LATENT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.34",
+        "Node name for S&R": "SamplerCustomAdvanced"
+      },
+      "widgets_values": [],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 82,
+      "type": "VAEDecode",
+      "pos": [
+        8360,
+        110
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {},
+      "order": 99,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 462
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 182
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            467,
+            510
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.28",
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": [],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 235,
+      "type": "RandomNoise",
+      "pos": [
+        7780,
+        -20
+      ],
+      "size": [
+        270,
+        82
+      ],
+      "flags": {},
+      "order": 45,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "noise_seed",
+          "type": "INT",
+          "widget": {
+            "name": "noise_seed"
+          },
+          "link": 645
+        }
+      ],
+      "outputs": [
+        {
+          "name": "NOISE",
+          "type": "NOISE",
+          "links": [
+            457
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.34",
+        "Node name for S&R": "RandomNoise"
+      },
+      "widgets_values": [
+        1119140998179844,
+        "fixed"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 477,
+      "type": "TwoWaySwitch",
+      "pos": [
+        7150,
+        100
+      ],
+      "size": [
+        270,
+        78
+      ],
+      "flags": {},
+      "order": 96,
+      "mode": 2,
+      "inputs": [
+        {
+          "label": "HighResFix",
+          "name": "input_1",
+          "shape": 7,
+          "type": "*",
+          "link": 852
+        },
+        {
+          "label": "inPaint",
+          "name": "input_2",
+          "shape": 7,
+          "type": "*",
+          "link": 857
+        },
+        {
+          "name": "selection_setting",
+          "type": "INT",
+          "widget": {
+            "name": "selection_setting"
+          },
+          "link": 858
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": [
+            859
+          ]
+        }
+      ],
+      "title": "InPaint HighResFix Switch",
+      "properties": {
+        "cnr_id": "controlaltai-nodes",
+        "ver": "65377b8c08de64af0086c84dd9364be87eb2f549",
+        "Node name for S&R": "TwoWaySwitch"
+      },
+      "widgets_values": [
+        1
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 253,
+      "type": "TwoWaySwitch",
+      "pos": [
+        9810,
+        150
+      ],
+      "size": [
+        270,
+        78
+      ],
+      "flags": {},
+      "order": 103,
+      "mode": 2,
+      "inputs": [
+        {
+          "label": "High ResFix",
+          "name": "input_1",
+          "shape": 7,
+          "type": "*",
+          "link": 510
+        },
+        {
+          "label": "Perturbation",
+          "name": "input_2",
+          "shape": 7,
+          "type": "*",
+          "link": 511
+        },
+        {
+          "name": "selection_setting",
+          "type": "INT",
+          "widget": {
+            "name": "selection_setting"
+          },
+          "link": 509
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": [
+            512
+          ]
+        }
+      ],
+      "title": "Pipeline Output Switch",
+      "properties": {
+        "cnr_id": "controlaltai-nodes",
+        "ver": "65377b8c08de64af0086c84dd9364be87eb2f549",
+        "Node name for S&R": "TwoWaySwitch"
+      },
+      "widgets_values": [
+        1
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 189,
+      "type": "FloatConstant",
+      "pos": [
+        6280,
+        10
+      ],
+      "size": [
+        210,
+        58
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "FLOAT",
+          "links": [
+            513
+          ]
+        }
+      ],
+      "title": "HighResFix Denoise",
+      "properties": {
+        "cnr_id": "comfyui-kjnodes",
+        "ver": "5dcda71011870278c35d92ff77a677ed2e538f2d",
+        "Node name for S&R": "FloatConstant"
+      },
+      "widgets_values": [
+        0.5500000000000002
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 8,
+      "type": "VAEDecode",
+      "pos": [
+        4700,
+        370
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {},
+      "order": 82,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 451
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 107
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            51,
+            356,
+            670,
+            671
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.28",
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": [],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 176,
+      "type": "VAEEncode",
+      "pos": [
+        7110,
+        490
+      ],
+      "size": [
+        140,
+        46
+      ],
+      "flags": {},
+      "order": 94,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "pixels",
+          "type": "IMAGE",
+          "link": 347
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 348
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            506
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.34",
+        "Node name for S&R": "VAEEncode"
+      },
+      "widgets_values": [],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 479,
+      "type": "VAEEncode",
+      "pos": [
+        6890,
+        280
+      ],
+      "size": [
+        180,
+        46
+      ],
+      "flags": {},
+      "order": 93,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "pixels",
+          "type": "IMAGE",
+          "link": 856
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 854
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            857
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.34",
+        "Node name for S&R": "VAEEncode"
+      },
+      "widgets_values": [],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 342,
+      "type": "CFGGuider",
+      "pos": [
+        5110,
+        1270
+      ],
+      "size": [
+        270,
+        98
+      ],
+      "flags": {},
+      "order": 79,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 678
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 681
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 680
+        }
+      ],
+      "outputs": [
+        {
+          "name": "GUIDER",
+          "type": "GUIDER",
+          "links": [
+            683
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.34",
+        "Node name for S&R": "CFGGuider"
+      },
+      "widgets_values": [
+        4
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 231,
+      "type": "CFGGuider",
+      "pos": [
+        3800,
+        80
+      ],
+      "size": [
+        270,
+        98
+      ],
+      "flags": {},
+      "order": 78,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 445
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 446
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 447
+        },
+        {
+          "name": "cfg",
+          "type": "FLOAT",
+          "widget": {
+            "name": "cfg"
+          },
+          "link": 759
+        }
+      ],
+      "outputs": [
+        {
+          "name": "GUIDER",
+          "type": "GUIDER",
+          "links": [
+            444,
+            682
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.34",
+        "Node name for S&R": "CFGGuider"
+      },
+      "widgets_values": [
+        4
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 416,
+      "type": "ThreeWaySwitch",
+      "pos": [
+        3490,
+        60
+      ],
+      "size": [
+        270,
+        98
+      ],
+      "flags": {},
+      "order": 55,
+      "mode": 2,
+      "inputs": [
+        {
+          "label": "Text",
+          "name": "input_1",
+          "shape": 7,
+          "type": "*",
+          "link": 764
+        },
+        {
+          "label": "Image",
+          "name": "input_2",
+          "shape": 7,
+          "type": "*",
+          "link": 765
+        },
+        {
+          "label": "Style",
+          "name": "input_3",
+          "shape": 7,
+          "type": "*",
+          "link": 766
+        },
+        {
+          "name": "selection_setting",
+          "type": "INT",
+          "widget": {
+            "name": "selection_setting"
+          },
+          "link": 763
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": [
+            759
+          ]
+        }
+      ],
+      "title": "CFG Swtich",
+      "properties": {
+        "cnr_id": "controlaltai-nodes",
+        "ver": "65377b8c08de64af0086c84dd9364be87eb2f549",
+        "Node name for S&R": "ThreeWaySwitch"
+      },
+      "widgets_values": [
+        1
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 69,
+      "type": "UNETLoader",
+      "pos": [
+        2120,
+        350
+      ],
+      "size": [
+        400,
+        82
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            328
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.28",
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "hidream_i1_full_fp8.safetensors",
+        "default"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 54,
+      "type": "QuadrupleCLIPLoader",
+      "pos": [
+        2130,
+        490
+      ],
+      "size": [
+        400,
+        130
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "slot_index": 0,
+          "links": [
+            112,
+            325,
+            649
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.28",
+        "Node name for S&R": "QuadrupleCLIPLoader"
+      },
+      "widgets_values": [
+        "clip_l_hidream.safetensors",
+        "clip_g_hidream.safetensors",
+        "t5xxl_fp8_e4m3fn_scaled.safetensors",
+        "llama_3.1_8b_instruct_fp8_scaled.safetensors"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 427,
+      "type": "FloatConstant",
+      "pos": [
+        3250,
+        290
+      ],
+      "size": [
+        210,
+        58
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "FLOAT",
+          "links": [
+            771,
+            772
+          ]
+        }
+      ],
+      "title": "Text & Image Denoise",
+      "properties": {
+        "cnr_id": "comfyui-kjnodes",
+        "ver": "0b78aedaeee2c467dbf675d98fee86d0482df7a5",
+        "Node name for S&R": "FloatConstant"
+      },
+      "widgets_values": [
+        1.0000000000000002
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 53,
+      "type": "EmptySD3LatentImage",
+      "pos": [
+        3240,
+        800
+      ],
+      "size": [
+        315,
+        106
+      ],
+      "flags": {},
+      "order": 51,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 302
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 303
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            775,
+            776
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.28",
+        "Node name for S&R": "EmptySD3LatentImage"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        1
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 381,
+      "type": "VAEEncode",
+      "pos": [
+        3620,
+        800
+      ],
+      "size": [
+        140,
+        46
+      ],
+      "flags": {},
+      "order": 60,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "pixels",
+          "type": "IMAGE",
+          "link": 716
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 715
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            777
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.39",
+        "Node name for S&R": "VAEEncode"
+      },
+      "widgets_values": [],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 428,
+      "type": "ThreeWaySwitch",
+      "pos": [
+        3800,
+        640
+      ],
+      "size": [
+        270,
+        98
+      ],
+      "flags": {},
+      "order": 66,
+      "mode": 2,
+      "inputs": [
+        {
+          "label": "Text",
+          "name": "input_1",
+          "shape": 7,
+          "type": "*",
+          "link": 775
+        },
+        {
+          "label": "Image",
+          "name": "input_2",
+          "shape": 7,
+          "type": "*",
+          "link": 776
+        },
+        {
+          "label": "Style",
+          "name": "input_3",
+          "shape": 7,
+          "type": "*",
+          "link": 777
+        },
+        {
+          "name": "selection_setting",
+          "type": "INT",
+          "widget": {
+            "name": "selection_setting"
+          },
+          "link": 779
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": [
+            778
+          ]
+        }
+      ],
+      "title": "Latent Switch",
+      "properties": {
+        "cnr_id": "controlaltai-nodes",
+        "ver": "65377b8c08de64af0086c84dd9364be87eb2f549",
+        "Node name for S&R": "ThreeWaySwitch"
+      },
+      "widgets_values": [
+        1
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 325,
+      "type": "ImageScaleBy",
+      "pos": [
+        6520,
+        490
+      ],
+      "size": [
+        270,
+        82
+      ],
+      "flags": {},
+      "order": 91,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 675
+        },
+        {
+          "name": "scale_by",
+          "type": "FLOAT",
+          "widget": {
+            "name": "scale_by"
+          },
+          "link": 643
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            644,
+            856
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.34",
+        "Node name for S&R": "ImageScaleBy"
+      },
+      "widgets_values": [
+        "bilinear",
+        1
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 236,
+      "type": "BasicScheduler",
+      "pos": [
+        7790,
+        140
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 67,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 459
+        },
+        {
+          "name": "steps",
+          "type": "INT",
+          "widget": {
+            "name": "steps"
+          },
+          "link": 837
+        },
+        {
+          "name": "denoise",
+          "type": "FLOAT",
+          "widget": {
+            "name": "denoise"
+          },
+          "link": 867
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SIGMAS",
+          "type": "SIGMAS",
+          "links": [
+            460
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.34",
+        "Node name for S&R": "BasicScheduler"
+      },
+      "widgets_values": [
+        "sgm_uniform",
+        50,
+        1
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 191,
+      "type": "FloatConstant",
+      "pos": [
+        6280,
+        120
+      ],
+      "size": [
+        210,
+        58
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "FLOAT",
+          "links": [
+            868
+          ]
+        }
+      ],
+      "title": "Perturbation Denoise",
+      "properties": {
+        "cnr_id": "comfyui-kjnodes",
+        "ver": "5dcda71011870278c35d92ff77a677ed2e538f2d",
+        "Node name for S&R": "FloatConstant"
+      },
+      "widgets_values": [
+        0.20000000000000004
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 353,
+      "type": "FloatConstant",
+      "pos": [
+        6280,
+        240
+      ],
+      "size": [
+        210,
+        58
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "FLOAT",
+          "links": [
+            869
+          ]
+        }
+      ],
+      "title": "InPaint Denoise",
+      "properties": {
+        "cnr_id": "comfyui-kjnodes",
+        "ver": "5dcda71011870278c35d92ff77a677ed2e538f2d",
+        "Node name for S&R": "FloatConstant"
+      },
+      "widgets_values": [
+        0.3000000000000001
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 254,
+      "type": "TwoWaySwitch",
+      "pos": [
+        6910,
+        -60
+      ],
+      "size": [
+        270,
+        78
+      ],
+      "flags": {},
+      "order": 62,
+      "mode": 2,
+      "inputs": [
+        {
+          "label": "High ResFix",
+          "name": "input_1",
+          "shape": 7,
+          "type": "*",
+          "link": 513
+        },
+        {
+          "label": "Perturbation",
+          "name": "input_2",
+          "shape": 7,
+          "type": "*",
+          "link": 870
+        },
+        {
+          "name": "selection_setting",
+          "type": "INT",
+          "widget": {
+            "name": "selection_setting"
+          },
+          "link": 516
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": [
+            867
+          ]
+        }
+      ],
+      "title": "Pipeline Denoise Switch",
+      "properties": {
+        "cnr_id": "controlaltai-nodes",
+        "ver": "65377b8c08de64af0086c84dd9364be87eb2f549",
+        "Node name for S&R": "TwoWaySwitch"
+      },
+      "widgets_values": [
+        1
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 483,
+      "type": "TwoWaySwitch",
+      "pos": [
+        6560,
+        90
+      ],
+      "size": [
+        270,
+        78
+      ],
+      "flags": {},
+      "order": 53,
+      "mode": 2,
+      "inputs": [
+        {
+          "label": "Perturbation",
+          "name": "input_1",
+          "shape": 7,
+          "type": "*",
+          "link": 868
+        },
+        {
+          "label": "inPaint",
+          "name": "input_2",
+          "shape": 7,
+          "type": "*",
+          "link": 869
+        },
+        {
+          "name": "selection_setting",
+          "type": "INT",
+          "widget": {
+            "name": "selection_setting"
+          },
+          "link": 871
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": [
+            870
+          ]
+        }
+      ],
+      "title": "InPaint Denoise Switch",
+      "properties": {
+        "cnr_id": "controlaltai-nodes",
+        "ver": "65377b8c08de64af0086c84dd9364be87eb2f549",
+        "Node name for S&R": "TwoWaySwitch"
+      },
+      "widgets_values": [
+        1
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 79,
+      "type": "LatentUpscaleBy",
+      "pos": [
+        6540,
+        240
+      ],
+      "size": [
+        290,
+        82
+      ],
+      "flags": {},
+      "order": 83,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 831
+        },
+        {
+          "name": "scale_by",
+          "type": "FLOAT",
+          "widget": {
+            "name": "scale_by"
+          },
+          "link": 191
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            852
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.28",
+        "Node name for S&R": "LatentUpscaleBy"
+      },
+      "widgets_values": [
+        "bilinear",
+        1.5000000000000002
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 338,
+      "type": "TwoWaySwitch",
+      "pos": [
+        6210,
+        500
+      ],
+      "size": [
+        270,
+        78
+      ],
+      "flags": {},
+      "order": 90,
+      "mode": 2,
+      "inputs": [
+        {
+          "label": "Perturbation",
+          "name": "input_1",
+          "shape": 7,
+          "type": "*",
+          "link": 671
+        },
+        {
+          "label": "inPaint",
+          "name": "input_2",
+          "shape": 7,
+          "type": "*",
+          "link": 674
+        },
+        {
+          "name": "selection_setting",
+          "type": "INT",
+          "widget": {
+            "name": "selection_setting"
+          },
+          "link": 676
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": [
+            675
+          ]
+        }
+      ],
+      "title": "InPaint Perturbation Switch",
+      "properties": {
+        "cnr_id": "controlaltai-nodes",
+        "ver": "65377b8c08de64af0086c84dd9364be87eb2f549",
+        "Node name for S&R": "TwoWaySwitch"
+      },
+      "widgets_values": [
+        1
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 343,
+      "type": "TwoWaySwitch",
+      "pos": [
+        6210,
+        680
+      ],
+      "size": [
+        270,
+        78
+      ],
+      "flags": {},
+      "order": 81,
+      "mode": 2,
+      "inputs": [
+        {
+          "label": "HighResFix / Perturbation",
+          "name": "input_1",
+          "shape": 7,
+          "type": "*",
+          "link": 682
+        },
+        {
+          "label": "InPaint",
+          "name": "input_2",
+          "shape": 7,
+          "type": "*",
+          "link": 683
+        },
+        {
+          "name": "selection_setting",
+          "type": "INT",
+          "widget": {
+            "name": "selection_setting"
+          },
+          "link": 685
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": [
+            684
+          ]
+        }
+      ],
+      "title": "InPaint Guider Switch",
+      "properties": {
+        "cnr_id": "controlaltai-nodes",
+        "ver": "65377b8c08de64af0086c84dd9364be87eb2f549",
+        "Node name for S&R": "TwoWaySwitch"
+      },
+      "widgets_values": [
+        1
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 144,
+      "type": "ShowText|pysssss",
+      "pos": [
+        -510,
+        290
+      ],
+      "size": [
+        550,
+        310
+      ],
+      "flags": {},
+      "order": 57,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 429
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": [
+            430
+          ]
+        }
+      ],
+      "title": "Image LLM",
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "aac13aa7ce35b07d43633c3bbe654a38c00d74f5",
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "A tabby cat with distinctive striped markings and amber eyes is partially submerged in water, its head and upper back visible above the surface, with a long tail trailing behind; numerous bright orange koi fish surround the cat, creating a vibrant contrast against the greenish-blue water, and subtle ripples emanate from the cat and fish, disrupting the otherwise smooth water surface; the background consists of blurred green foliage suggesting a pond or garden setting, and the overall lighting is soft and natural, emphasizing the textures of the cat's fur and the scales of the fish. The composition focuses on the cat's direct gaze, creating a humorous and unexpected juxtaposition between the feline and aquatic life."
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 142,
+      "type": "LoadImage",
+      "pos": [
+        -2150,
+        -160
+      ],
+      "size": [
+        400,
+        420
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            269,
+            711,
+            825,
+            878
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.34",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "v0-qolcdu7pt0ue1.webp",
+        "image"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 122,
+      "type": "HiDreamResolutionNode",
+      "pos": [
+        -2010,
+        1160
+      ],
+      "size": [
+        315,
+        118
+      ],
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [
+            302,
+            712
+          ]
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            303,
+            713
+          ]
+        },
+        {
+          "name": "resolution",
+          "type": "STRING",
+          "links": []
+        },
+        {
+          "name": "preview",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "controlaltai-nodes",
+        "ver": "404b22d09283b2ece48da6c4e024d4d6beaecb07",
+        "Node name for S&R": "HiDreamResolutionNode"
+      },
+      "widgets_values": [
+        "16:9 (Widescreen Landscape)"
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 179,
+      "type": "IntegerSettings",
+      "pos": [
+        -1965,
+        740
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 27,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "setting_value",
+          "type": "INT",
+          "links": [
+            507,
+            509,
+            516
+          ]
+        }
+      ],
+      "title": "Perturbation Pipeline",
+      "properties": {
+        "cnr_id": "controlaltai-nodes",
+        "ver": "65377b8c08de64af0086c84dd9364be87eb2f549",
+        "Node name for S&R": "IntegerSettings"
+      },
+      "widgets_values": [
+        true
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 341,
+      "type": "IntegerSettings",
+      "pos": [
+        -1965,
+        1030
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 28,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "setting_value",
+          "type": "INT",
+          "links": [
+            676,
+            685,
+            858,
+            871
+          ]
+        }
+      ],
+      "title": "InPaint",
+      "properties": {
+        "cnr_id": "controlaltai-nodes",
+        "ver": "65377b8c08de64af0086c84dd9364be87eb2f549",
+        "Node name for S&R": "IntegerSettings"
+      },
+      "widgets_values": [
+        false
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 70,
+      "type": "ModelSamplingSD3",
+      "pos": [
+        2990,
+        240
+      ],
+      "size": [
+        210,
+        58
+      ],
+      "flags": {},
+      "order": 47,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 328
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            445,
+            458,
+            459,
+            646,
+            678
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.28",
+        "Node name for S&R": "ModelSamplingSD3"
+      },
+      "widgets_values": [
+        3.0000000000000004
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 252,
+      "type": "TwoWaySwitch",
+      "pos": [
+        7470,
+        240
+      ],
+      "size": [
+        270,
+        78
+      ],
+      "flags": {},
+      "order": 97,
+      "mode": 2,
+      "inputs": [
+        {
+          "label": "High ResFix",
+          "name": "input_1",
+          "shape": 7,
+          "type": "*",
+          "link": 859
+        },
+        {
+          "label": "Perturbation",
+          "name": "input_2",
+          "shape": 7,
+          "type": "*",
+          "link": 506
+        },
+        {
+          "name": "selection_setting",
+          "type": "INT",
+          "widget": {
+            "name": "selection_setting"
+          },
+          "link": 507
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": [
+            834
+          ]
+        }
+      ],
+      "title": "Pipeline Latent Switch",
+      "properties": {
+        "cnr_id": "controlaltai-nodes",
+        "ver": "65377b8c08de64af0086c84dd9364be87eb2f549",
+        "Node name for S&R": "TwoWaySwitch"
+      },
+      "widgets_values": [
+        1
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 175,
+      "type": "PerturbationTexture",
+      "pos": [
+        6820,
+        430
+      ],
+      "size": [
+        270,
+        246
+      ],
+      "flags": {},
+      "order": 92,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 644
+        },
+        {
+          "name": "mask",
+          "shape": 7,
+          "type": "MASK",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "textured_image_output",
+          "type": "IMAGE",
+          "links": [
+            347,
+            484
+          ]
+        },
+        {
+          "name": "texture_layer",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "controlaltai-nodes",
+        "ver": "65377b8c08de64af0086c84dd9364be87eb2f549",
+        "Node name for S&R": "PerturbationTexture"
+      },
+      "widgets_values": [
+        0.25000000000000006,
+        50,
+        "Film Grain",
+        1,
+        0.15000000000000002,
+        false,
+        535,
+        "fixed"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 486,
+      "type": "MarkdownNote",
+      "pos": [
+        6910,
+        730
+      ],
+      "size": [
+        330,
+        290
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 29,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [],
+      "title": "Pre Upscale Perturbation Setting",
+      "properties": {},
+      "widgets_values": [
+        "### 🔧 Perturbation & Film Grain Tips\n\n**🌀 Perturbation Texture Strength**  \n- Recommended range: **25–50**\n- If you notice **artifacts during upscaling**, reduce to **25**\n- For clean yet detailed textures, **50** works best\n\n---\n\n**🎞️ Film Grain**  \n- Works **best at this stage** of processing  \n- Adds subtle realism and depth  \n- ✅ Recommended: **Enable it** for a natural finish  \n- 🧪 Feel free to **experiment** with different grain intensities for creative results\n\n---\n\n> 🎯 **Tip:** If using aggressive upscalers or denoisers, lower perturbation and grain may preserve clarity better.\n"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 458,
+      "type": "Fast Groups Muter (rgthree)",
+      "pos": [
+        6520,
+        790
+      ],
+      "size": [
+        300,
+        178
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 30,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OPT_CONNECTION",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "title": "Groups Control (Mute)",
+      "properties": {
+        "matchColors": "",
+        "matchTitle": "^Text LLM|Image LLM|Style LLM|HiDream Core|LanPaint|HiDream Upscale.*",
+        "showNav": true,
+        "sort": "custom alphabet",
+        "customSortAlphabet": "Text LLM,Image LLM,Style LLM,HiDream Core,LanPaint,HiDream Upscale",
+        "toggleRestriction": "default"
+      },
+      "color": "#323",
+      "bgcolor": "#535"
+    },
+    {
+      "id": 431,
+      "type": "Fast Groups Muter (rgthree)",
+      "pos": [
+        8150,
+        320
+      ],
+      "size": [
+        300,
+        178
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 31,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OPT_CONNECTION",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "title": "Groups Control (Mute)",
+      "properties": {
+        "matchColors": "",
+        "matchTitle": "^Text LLM|Image LLM|Style LLM|HiDream Core|LanPaint|HiDream Upscale.*",
+        "showNav": true,
+        "sort": "custom alphabet",
+        "customSortAlphabet": "Text LLM,Image LLM,Style LLM,HiDream Core,LanPaint,HiDream Upscale",
+        "toggleRestriction": "default"
+      },
+      "color": "#323",
+      "bgcolor": "#535"
+    },
+    {
+      "id": 487,
+      "type": "MarkdownNote",
+      "pos": [
+        9150,
+        470
+      ],
+      "size": [
+        620,
+        330
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 32,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [],
+      "title": "Pre Final Upscale Perturbation Setting",
+      "properties": {},
+      "widgets_values": [
+        "### 🎯 Perturbation Texture Usage Guide (Second Upscale Stage)\n\n**📍 Strength Recommendation:**\n- For second upscale or pre-final render:  \n  Set **Perturbation Texture Strength between 10–50**\n- 🧩 **Default setting:** `Natural` texture type at **strength 10**\n\n---\n\n**🎛️ Texture Type Options (in Custom Node):**\n\n| Option          | Best Used For                                              |\n|------------------|------------------------------------------------------------|\n| **Natural**       | Balanced, organic texture — ideal for stylized portraits or general image enhancement without overwhelming details |\n| **Film Grain**    | Adds cinematic noise — great for final renders or creative film looks |\n| **Skin Pore**     | Subtle realism — best for **close-ups** or portraits needing natural facial texture |\n| **Fine Detail**   | Emphasizes high-frequency textures — perfect for mechanical, fabric, or intricate object renders |\n\n---\n\n> 🧪 **Tip:** Use lower strength (10–25) for subtle texture and higher (30–50) for more pronounced detail. Adjust based on subject complexity and desired finish.\n"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 451,
+      "type": "ThreeWaySwitch",
+      "pos": [
+        710,
+        450
+      ],
+      "size": [
+        270,
+        98
+      ],
+      "flags": {},
+      "order": 69,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "Text",
+          "name": "input_1",
+          "shape": 7,
+          "type": "*",
+          "link": 810
+        },
+        {
+          "label": "Image",
+          "name": "input_2",
+          "shape": 7,
+          "type": "*",
+          "link": 811
+        },
+        {
+          "label": "Style",
+          "name": "input_3",
+          "shape": 7,
+          "type": "*",
+          "link": 812
+        },
+        {
+          "name": "selection_setting",
+          "type": "INT",
+          "widget": {
+            "name": "selection_setting"
+          },
+          "link": 813
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": [
+            814,
+            864,
+            865,
+            866
+          ]
+        }
+      ],
+      "title": "LLM Switch",
+      "properties": {
+        "cnr_id": "controlaltai-nodes",
+        "ver": "65377b8c08de64af0086c84dd9364be87eb2f549",
+        "Node name for S&R": "ThreeWaySwitch"
+      },
+      "widgets_values": [
+        1
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 485,
+      "type": "MarkdownNote",
+      "pos": [
+        -1410,
+        1360
+      ],
+      "size": [
+        510,
+        460
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 33,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Target Style",
+      "properties": {},
+      "widgets_values": [
+        "### 🎨 Style Transformation Tips\n\n**🛠️ Target Style** can be used to change the **entire theme** of the image or **specific subject elements**.\n\n- **🔁 High Denoise**: Best for **full style change** while preserving overall composition.\n- **🎯 Medium / Low Denoise**: Ideal for **minor tweaks** or **specific subject/object style changes** with better consistency.\n\n---\n\n#### ✏️ Some Style Examples *(Medium or High Denoise)*:\n\n- Anime Style  \n- Ghibli Style  \n- Flat Vector Style  \n- Pixel Art Style  \n- Illustration Style  \n- Disney Pixar Style  \n\n---\n\n#### 🧠 Go Creative *(High Denoise)*:\n\n- Robotic Cat in Toxic Green Water  \n- Cat made out of Yarn, Cinematic  \n- Cat made out of Swarovski Crystals  \n- Cat made out of Paper, 3D Render  \n\n---\n\n#### 👁️ Specific Element Tweaks *(Low Denoise)*:\n\n- Psychedelic Eye Colors  \n\n---\n\n> 💡 **Tip:** Start small with low denoise for subtle effects. Increase denoise to amplify stylization and transformation.\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 408,
+      "type": "IntegerSettingsAdvanced",
+      "pos": [
+        -1965,
+        570
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 34,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "setting_value",
+          "type": "INT",
+          "links": [
+            763,
+            774,
+            779,
+            813
+          ]
+        }
+      ],
+      "title": "Text, Image or Style",
+      "properties": {
+        "cnr_id": "controlaltai-nodes",
+        "ver": "65377b8c08de64af0086c84dd9364be87eb2f549",
+        "Node name for S&R": "IntegerSettingsAdvanced"
+      },
+      "widgets_values": [
+        true,
+        false,
+        false
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 356,
+      "type": "Fast Groups Muter (rgthree)",
+      "pos": [
+        -2390,
+        780
+      ],
+      "size": [
+        300,
+        178
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 35,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OPT_CONNECTION",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "title": "Groups Control (Mute)",
+      "properties": {
+        "matchColors": "",
+        "matchTitle": "^Text LLM|Image LLM|Style LLM|HiDream Core|LanPaint|HiDream Upscale.*",
+        "showNav": true,
+        "sort": "custom alphabet",
+        "customSortAlphabet": "Text LLM,Image LLM,Style LLM,HiDream Core,LanPaint,HiDream Upscale",
+        "toggleRestriction": "default"
+      },
+      "color": "#323",
+      "bgcolor": "#535"
+    },
+    {
+      "id": 364,
+      "type": "MarkdownNote",
+      "pos": [
+        -2650,
+        -230
+      ],
+      "size": [
+        400,
+        520
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 36,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "HiDream Models & Locations",
+      "properties": {},
+      "widgets_values": [
+        "### ▶️[ControlAltAI](https://youtube.com/@controlaltai)\n\n📌**HiDream Text Encoders:**\n\n* [Clip L](https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/blob/main/split_files/text_encoders/clip_l_hidream.safetensors)\n* [Clip G](https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/blob/main/split_files/text_encoders/clip_g_hidream.safetensors)\n* [T5xxl FP8 Scaled](https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/blob/main/split_files/text_encoders/t5xxl_fp8_e4m3fn_scaled.safetensors) \n* [Llama 3.1 8B Instruct FP8 Scaled](https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/blob/main/split_files/text_encoders/llama_3.1_8b_instruct_fp8_scaled.safetensors)\n\n📌 **HiDream VAE:**\n*  [AE](https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/blob/main/split_files/vae/ae.safetensors)\n\n📌 **HiDream Diffusion Models:**\n* [Full FP8](https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/blob/main/split_files/diffusion_models/hidream_i1_full_fp8.safetensors)\n* [Dev FP8](https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/blob/main/split_files/diffusion_models/hidream_i1_dev_fp8.safetensors)\n* [Fast FP8](https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/blob/main/split_files/diffusion_models/hidream_i1_fast_fp8.safetensors)\n* [Edit Full BF16](https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/blob/main/split_files/diffusion_models/hidream_e1_full_bf16.safetensors)\n\n📌 **File saved location**\n```\n📁 ComfyUI/\n├── 📁 models/\n│   ├── 📁 text_encoders/\n│   │   ├─── 📄clip_l_hidream.safetensors\n│   │   ├─── 📄clip_g_hidream.safetensors\n│   │   ├─── 📄t5xxl_fp8_e4m3fn_scaled.safetensors\n│   │   └─── 📄llama_3.1_8b_instruct_fp8_scaled.safetensors\n│   └── 📁 vae/\n│   │   └── 📄ae.safetensors\n│   └── 📁 diffusion_models/\n│       └── 📄hidream_i1_full_fp8.safetensors\n│       └── 📄hidream_i1_dev_fp8.safetensors\n│       └── 📄hidream_i1_fast_fp8.safetensors\n│       └── 📄hidream_e1_full_bf16.safetensors   \n```"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 489,
+      "type": "MarkdownNote",
+      "pos": [
+        1600,
+        1310
+      ],
+      "size": [
+        350,
+        390
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 37,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "InPainting Changes",
+      "properties": {},
+      "widgets_values": [
+        "### 🖌️ Inpainting Instructions Guide\n\n**📍 How It Works:**\n- You must **load a mask** that defines the area to be inpainted.\n- The model will modify **only the masked area** while preserving the rest of the image.\n\n---\n\n**✏️ What You Can Do in the Mask Area:**\n\nUse natural language instructions to perform tasks like:\n\n**Change subjects:**\n\n  - `Change cat to frog`  \n  - `Change the boy to father`\n\n**Alter surrounding elements:**\n  - `Change the fishes to sharks`  \n  - `Change the water to swamp-like muddle brown`\n\n**Add / Remove components:**\n  - `Add a hat to the girl`  \n  - `Remove the tree in the background`\n\n> 💡 **Tip:** You only need to describe the change. The LLM will automatically preserve the style, lighting, and composition.\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 337,
+      "type": "LoadImageMask",
+      "pos": [
+        4670,
+        1150
+      ],
+      "size": [
+        320,
+        340
+      ],
+      "flags": {},
+      "order": 38,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            840
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.34",
+        "Node name for S&R": "LoadImageMask"
+      },
+      "widgets_values": [
+        "cat_mask.png",
+        "alpha",
+        "image"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 375,
+      "type": "MarkdownNote",
+      "pos": [
+        -2910,
+        350
+      ],
+      "size": [
+        390,
+        370
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 39,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Upscale Model",
+      "properties": {},
+      "widgets_values": [
+        "### 🖼️ Upscale Models in ComfyUI\n\n#### 1. ✨ [4xLexicaDAT2_otf](https://openmodeldb.info/models/4x-LexicaDAT2-otf)\n- **Use this model for sharper upscaling.**\n- Trained specifically on AI-generated images for high-detail enhancement.\n\n#### 2. 🏆 [4xFFHQDAT](https://openmodeldb.info/models/4x-FFHQDAT)\n- **Recommended model.**\n- Designed for upscaling faces and general photos while retaining natural skin detail.\n- 🪄 *Even though it's designed for portraits and photos, it works well as an all-around model for smooth, soft upscaling on a wide variety of images.*\n\n---\n\n### 📂 Where to Get More Models\n\nBrowse and compare more upscaling models at [🌐 openmodeldb.info](https://openmodeldb.info/).\n\n---\n\n> 💡 **Tip:**  \n> Always choose the model best suited for your image type (AI art, photos, faces, etc.) for optimal results!"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 159,
+      "type": "OllamaGenerateV2",
+      "pos": [
+        -990,
+        -330
+      ],
+      "size": [
+        490,
+        450
+      ],
+      "flags": {},
+      "order": 46,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "connectivity",
+          "shape": 7,
+          "type": "OLLAMA_CONNECTIVITY",
+          "link": 309
+        },
+        {
+          "name": "options",
+          "shape": 7,
+          "type": "OLLAMA_OPTIONS",
+          "link": 294
+        },
+        {
+          "name": "images",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "context",
+          "shape": 7,
+          "type": "OLLAMA_CONTEXT",
+          "link": null
+        },
+        {
+          "name": "meta",
+          "shape": 7,
+          "type": "OLLAMA_META",
+          "link": null
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 415
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "type": "STRING",
+          "links": [
+            296
+          ]
+        },
+        {
+          "name": "context",
+          "type": "OLLAMA_CONTEXT",
+          "links": null
+        },
+        {
+          "name": "meta",
+          "type": "OLLAMA_META",
+          "links": null
+        }
+      ],
+      "title": "Text LLM",
+      "properties": {
+        "cnr_id": "comfyui-ollama",
+        "ver": "f28d6e2d0a896cf843f71c3997b59ec12dcefb65",
+        "Node name for S&R": "OllamaGenerateV2"
+      },
+      "widgets_values": [
+        "You are a prompt enrichment model. Given a creative or abstract text prompt, expand it into a vivid, richly detailed description suitable for language models like T5XXL and LLaMA. Preserve the original theme, but enhance it with sensory details, spatial relationships, and evocative language. Output a natural-sounding, immersive prompt of 1–2 sentences. Respond in a single continuous paragraph. Avoid any kind of structured formatting, such as bullet points, numbered lists, headings, bolded sections, or labeled parts. Do not divide the output into categories—write as one seamless descriptive passage.\n",
+        "A vector of a kid in a superhero suit",
+        false,
+        true,
+        "text"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 139,
+      "type": "OllamaGenerateV2",
+      "pos": [
+        -1060,
+        290
+      ],
+      "size": [
+        500,
+        520
+      ],
+      "flags": {},
+      "order": 49,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "connectivity",
+          "shape": 7,
+          "type": "OLLAMA_CONNECTIVITY",
+          "link": 267
+        },
+        {
+          "name": "options",
+          "shape": 7,
+          "type": "OLLAMA_OPTIONS",
+          "link": 268
+        },
+        {
+          "name": "images",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 269
+        },
+        {
+          "name": "context",
+          "shape": 7,
+          "type": "OLLAMA_CONTEXT",
+          "link": null
+        },
+        {
+          "name": "meta",
+          "shape": 7,
+          "type": "OLLAMA_META",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "type": "STRING",
+          "links": [
+            429
+          ]
+        },
+        {
+          "name": "context",
+          "type": "OLLAMA_CONTEXT",
+          "links": null
+        },
+        {
+          "name": "meta",
+          "type": "OLLAMA_META",
+          "links": null
+        }
+      ],
+      "title": "Image LLM",
+      "properties": {
+        "cnr_id": "comfyui-ollama",
+        "ver": "f28d6e2d0a896cf843f71c3997b59ec12dcefb65",
+        "Node name for S&R": "OllamaGenerateV2"
+      },
+      "widgets_values": [
+        "You are a professional visual description model. Given an input image, generate only a detailed prompt-style description. Do not mention that it is an image. Do not include any explanation, interpretation, or preface like “this image shows.” Simply describe the visual content with rich detail that could be used as a generation prompt for an AI model. Stay factual, use a neutral tone, and avoid fictional or imaginative content unless explicitly visible.\n\nRespond in a single continuous paragraph using natural language. Avoid any kind of structured formatting, such as bullet points, numbered lists, headings, bolded sections, or labeled parts. Do not divide the output into categories—write as one seamless descriptive passage. Limit to 3-4 descriptive sentences.\n",
+        "Describe the image. Ouput description only as a prompt.",
+        false,
+        true,
+        "text"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 472,
+      "type": "OpenAIChatConfig",
+      "pos": [
+        2090,
+        1300
+      ],
+      "size": [
+        500,
+        380
+      ],
+      "flags": {},
+      "order": 40,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OPENAI_CHAT_CONFIG",
+          "type": "OPENAI_CHAT_CONFIG",
+          "links": [
+            844
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.39",
+        "Node name for S&R": "OpenAIChatConfig"
+      },
+      "widgets_values": [
+        "auto",
+        4096,
+        "You are a prompt modification assistant for inpainting tasks.\n\nYou will receive a detailed base prompt describing the entire image, along with a free-text \"Changes:\" instruction from the user.\n\nYour task is to modify only the portion of the prompt affected by the requested change, while preserving all unrelated details exactly as written.\n\nDo not rewrite or paraphrase the entire prompt.\n\nModify only what is necessary to apply the change accurately and naturally.\n\nMaintain all visual characteristics such as composition, lighting, spatial layout, and descriptive tone unless directly impacted by the change.\n\nWhen replacing a subject, remove or adapt any descriptors that are no longer applicable to the new subject.\n\nEnsure the revised prompt reads fluently and maintains internal consistency.\n\nChanges: Change cat to frog"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 149,
+      "type": "OllamaGenerateV2",
+      "pos": [
+        1020,
+        280
+      ],
+      "size": [
+        490,
+        420
+      ],
+      "flags": {},
+      "order": 70,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "connectivity",
+          "shape": 7,
+          "type": "OLLAMA_CONNECTIVITY",
+          "link": 279
+        },
+        {
+          "name": "options",
+          "shape": 7,
+          "type": "OLLAMA_OPTIONS",
+          "link": 280
+        },
+        {
+          "name": "images",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 825
+        },
+        {
+          "name": "context",
+          "shape": 7,
+          "type": "OLLAMA_CONTEXT",
+          "link": null
+        },
+        {
+          "name": "meta",
+          "shape": 7,
+          "type": "OLLAMA_META",
+          "link": null
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 814
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "type": "STRING",
+          "links": [
+            782,
+            875
+          ]
+        },
+        {
+          "name": "context",
+          "type": "OLLAMA_CONTEXT",
+          "links": null
+        },
+        {
+          "name": "meta",
+          "type": "OLLAMA_META",
+          "links": null
+        }
+      ],
+      "title": "LLM Summary",
+      "properties": {
+        "cnr_id": "comfyui-ollama",
+        "ver": "f28d6e2d0a896cf843f71c3997b59ec12dcefb65",
+        "Node name for S&R": "OllamaGenerateV2"
+      },
+      "widgets_values": [
+        "You are a prompt compression model. Given a richly detailed text description, rewrite it into a short, visually descriptive prompt optimized for CLIP-based models. Dynamically preserve any stylistic or artistic cues present in the original text. Focus only on concrete visual elements such as objects, colors, materials, textures, lighting, and spatial layout. Avoid emotions, storytelling, or abstract language. Keep the output literal, compact, and under 25 words.",
+        "Describe the image. Ouput description only as a prompt.",
+        false,
+        true,
+        "text"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 494,
+      "type": "TextBridge",
+      "pos": [
+        1550,
+        580
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 73,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "passthrough_text",
+          "shape": 7,
+          "type": "STRING",
+          "link": 875
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "STRING",
+          "links": [
+            876,
+            877
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "controlaltai-nodes",
+        "ver": "721492b66c9cede8ae23ae10615462ad80cfd061",
+        "Node name for S&R": "TextBridge"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#332922",
+      "bgcolor": "#593930"
+    },
+    {
+      "id": 425,
+      "type": "FloatConstant",
+      "pos": [
+        3250,
+        410
+      ],
+      "size": [
+        210,
+        58
+      ],
+      "flags": {},
+      "order": 41,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "FLOAT",
+          "links": [
+            817
+          ]
+        }
+      ],
+      "title": "Style Denoise Low",
+      "properties": {
+        "cnr_id": "comfyui-kjnodes",
+        "ver": "0b78aedaeee2c467dbf675d98fee86d0482df7a5",
+        "Node name for S&R": "FloatConstant"
+      },
+      "widgets_values": [
+        0.6000000000000002
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 227,
+      "type": "TextBridge",
+      "pos": [
+        90,
+        -330
+      ],
+      "size": [
+        520,
+        340
+      ],
+      "flags": {},
+      "order": 64,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "passthrough_text",
+          "shape": 7,
+          "type": "STRING",
+          "link": 431
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "STRING",
+          "links": [
+            810
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "controlaltai-nodes",
+        "ver": "65377b8c08de64af0086c84dd9364be87eb2f549",
+        "Node name for S&R": "TextBridge"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#332922",
+      "bgcolor": "#593930"
+    },
+    {
+      "id": 495,
+      "type": "GeminiNode",
+      "pos": [
+        -850,
+        990
+      ],
+      "size": [
+        510,
+        590
+      ],
+      "flags": {},
+      "order": 50,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "images",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 878
+        },
+        {
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        },
+        {
+          "name": "video",
+          "shape": 7,
+          "type": "VIDEO",
+          "link": null
+        },
+        {
+          "name": "files",
+          "shape": 7,
+          "type": "GEMINI_INPUT_FILES",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            879,
+            880
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.40",
+        "Node name for S&R": "GeminiNode"
+      },
+      "widgets_values": [
+        "Describe the image as if it were created in the Target Style as a prompt. Maintain all visible subjects, layout, and spatial relationships exactly as seen. Use image-generation–friendly language that reflects the Target Style’s texture, color treatment, lighting, brushwork, and detail level. Capture all key visual elements: facial features, expressions, pose, clothing, accessories, background, and environment. Do not add or remove objects. Avoid poetic or figurative language. Limit to 4–5 descriptive sentences.\n\nTarget Style: Psychedelic Colored Eyes ",
+        "gemini-2.5-pro-preview-05-06",
+        1114780856614385,
+        "fixed"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 420,
+      "type": "FloatConstant",
+      "pos": [
+        3250,
+        160
+      ],
+      "size": [
+        210,
+        58
+      ],
+      "flags": {},
+      "order": 42,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "FLOAT",
+          "links": [
+            766
+          ]
+        }
+      ],
+      "title": "Style CFG",
+      "properties": {
+        "cnr_id": "comfyui-kjnodes",
+        "ver": "0b78aedaeee2c467dbf675d98fee86d0482df7a5",
+        "Node name for S&R": "FloatConstant"
+      },
+      "widgets_values": [
+        6.000000000000002
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    }
+  ],
+  "links": [
+    [
+      51,
+      8,
+      0,
+      9,
+      0,
+      "IMAGE"
+    ],
+    [
+      107,
+      55,
+      0,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      112,
+      54,
+      0,
+      40,
+      0,
+      "CLIP"
+    ],
+    [
+      182,
+      55,
+      0,
+      82,
+      1,
+      "VAE"
+    ],
+    [
+      191,
+      87,
+      0,
+      79,
+      1,
+      "FLOAT"
+    ],
+    [
+      226,
+      111,
+      0,
+      106,
+      0,
+      "UPSCALE_MODEL"
+    ],
+    [
+      227,
+      108,
+      0,
+      111,
+      0,
+      "UPSCALE_MODEL"
+    ],
+    [
+      228,
+      112,
+      0,
+      111,
+      1,
+      "UPSCALE_MODEL"
+    ],
+    [
+      267,
+      140,
+      0,
+      139,
+      0,
+      "OLLAMA_CONNECTIVITY"
+    ],
+    [
+      268,
+      141,
+      0,
+      139,
+      1,
+      "OLLAMA_OPTIONS"
+    ],
+    [
+      269,
+      142,
+      0,
+      139,
+      2,
+      "IMAGE"
+    ],
+    [
+      279,
+      140,
+      0,
+      149,
+      0,
+      "OLLAMA_CONNECTIVITY"
+    ],
+    [
+      280,
+      141,
+      0,
+      149,
+      1,
+      "OLLAMA_OPTIONS"
+    ],
+    [
+      294,
+      141,
+      0,
+      159,
+      1,
+      "OLLAMA_OPTIONS"
+    ],
+    [
+      296,
+      159,
+      0,
+      163,
+      0,
+      "STRING"
+    ],
+    [
+      302,
+      122,
+      0,
+      53,
+      0,
+      "INT"
+    ],
+    [
+      303,
+      122,
+      1,
+      53,
+      1,
+      "INT"
+    ],
+    [
+      309,
+      140,
+      0,
+      159,
+      0,
+      "OLLAMA_CONNECTIVITY"
+    ],
+    [
+      325,
+      54,
+      0,
+      148,
+      0,
+      "CLIP"
+    ],
+    [
+      328,
+      69,
+      0,
+      70,
+      0,
+      "MODEL"
+    ],
+    [
+      347,
+      175,
+      0,
+      176,
+      0,
+      "IMAGE"
+    ],
+    [
+      348,
+      55,
+      0,
+      176,
+      1,
+      "VAE"
+    ],
+    [
+      351,
+      106,
+      0,
+      110,
+      0,
+      "IMAGE"
+    ],
+    [
+      355,
+      106,
+      0,
+      170,
+      0,
+      "IMAGE"
+    ],
+    [
+      356,
+      8,
+      0,
+      170,
+      1,
+      "IMAGE"
+    ],
+    [
+      415,
+      214,
+      0,
+      159,
+      5,
+      "STRING"
+    ],
+    [
+      429,
+      139,
+      0,
+      144,
+      0,
+      "STRING"
+    ],
+    [
+      430,
+      144,
+      0,
+      225,
+      0,
+      "STRING"
+    ],
+    [
+      431,
+      163,
+      0,
+      227,
+      0,
+      "STRING"
+    ],
+    [
+      442,
+      229,
+      0,
+      228,
+      3,
+      "SIGMAS"
+    ],
+    [
+      443,
+      230,
+      0,
+      228,
+      2,
+      "SAMPLER"
+    ],
+    [
+      444,
+      231,
+      0,
+      228,
+      1,
+      "GUIDER"
+    ],
+    [
+      445,
+      70,
+      0,
+      231,
+      0,
+      "MODEL"
+    ],
+    [
+      446,
+      148,
+      0,
+      231,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      447,
+      40,
+      0,
+      231,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      448,
+      232,
+      0,
+      228,
+      0,
+      "NOISE"
+    ],
+    [
+      449,
+      75,
+      0,
+      232,
+      0,
+      "INT"
+    ],
+    [
+      451,
+      228,
+      0,
+      8,
+      0,
+      "LATENT"
+    ],
+    [
+      454,
+      230,
+      0,
+      234,
+      2,
+      "SAMPLER"
+    ],
+    [
+      457,
+      235,
+      0,
+      234,
+      0,
+      "NOISE"
+    ],
+    [
+      458,
+      70,
+      0,
+      229,
+      0,
+      "MODEL"
+    ],
+    [
+      459,
+      70,
+      0,
+      236,
+      0,
+      "MODEL"
+    ],
+    [
+      460,
+      236,
+      0,
+      234,
+      3,
+      "SIGMAS"
+    ],
+    [
+      462,
+      234,
+      0,
+      82,
+      0,
+      "LATENT"
+    ],
+    [
+      467,
+      82,
+      0,
+      238,
+      0,
+      "IMAGE"
+    ],
+    [
+      471,
+      238,
+      1,
+      239,
+      1,
+      "MASK"
+    ],
+    [
+      472,
+      239,
+      0,
+      130,
+      0,
+      "IMAGE"
+    ],
+    [
+      480,
+      238,
+      0,
+      239,
+      0,
+      "IMAGE"
+    ],
+    [
+      484,
+      175,
+      0,
+      243,
+      0,
+      "IMAGE"
+    ],
+    [
+      506,
+      176,
+      0,
+      252,
+      1,
+      "*"
+    ],
+    [
+      507,
+      179,
+      0,
+      252,
+      2,
+      "INT"
+    ],
+    [
+      509,
+      179,
+      0,
+      253,
+      2,
+      "INT"
+    ],
+    [
+      510,
+      82,
+      0,
+      253,
+      0,
+      "*"
+    ],
+    [
+      511,
+      239,
+      0,
+      253,
+      1,
+      "*"
+    ],
+    [
+      512,
+      253,
+      0,
+      106,
+      1,
+      "IMAGE"
+    ],
+    [
+      513,
+      189,
+      0,
+      254,
+      0,
+      "*"
+    ],
+    [
+      516,
+      179,
+      0,
+      254,
+      2,
+      "INT"
+    ],
+    [
+      640,
+      323,
+      0,
+      229,
+      1,
+      "INT"
+    ],
+    [
+      643,
+      87,
+      0,
+      325,
+      1,
+      "FLOAT"
+    ],
+    [
+      644,
+      325,
+      0,
+      175,
+      0,
+      "IMAGE"
+    ],
+    [
+      645,
+      75,
+      0,
+      235,
+      0,
+      "INT"
+    ],
+    [
+      646,
+      70,
+      0,
+      326,
+      0,
+      "MODEL"
+    ],
+    [
+      648,
+      327,
+      0,
+      328,
+      1,
+      "STRING"
+    ],
+    [
+      649,
+      54,
+      0,
+      328,
+      0,
+      "CLIP"
+    ],
+    [
+      650,
+      40,
+      0,
+      326,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      651,
+      328,
+      0,
+      326,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      652,
+      75,
+      0,
+      326,
+      4,
+      "INT"
+    ],
+    [
+      654,
+      55,
+      0,
+      330,
+      1,
+      "VAE"
+    ],
+    [
+      655,
+      330,
+      0,
+      329,
+      0,
+      "LATENT"
+    ],
+    [
+      656,
+      329,
+      0,
+      326,
+      3,
+      "LATENT"
+    ],
+    [
+      660,
+      326,
+      0,
+      333,
+      0,
+      "LATENT"
+    ],
+    [
+      661,
+      55,
+      0,
+      333,
+      1,
+      "VAE"
+    ],
+    [
+      670,
+      8,
+      0,
+      330,
+      0,
+      "IMAGE"
+    ],
+    [
+      671,
+      8,
+      0,
+      338,
+      0,
+      "*"
+    ],
+    [
+      673,
+      333,
+      0,
+      340,
+      0,
+      "IMAGE"
+    ],
+    [
+      674,
+      333,
+      0,
+      338,
+      1,
+      "*"
+    ],
+    [
+      675,
+      338,
+      0,
+      325,
+      0,
+      "IMAGE"
+    ],
+    [
+      676,
+      341,
+      0,
+      338,
+      2,
+      "INT"
+    ],
+    [
+      678,
+      70,
+      0,
+      342,
+      0,
+      "MODEL"
+    ],
+    [
+      680,
+      40,
+      0,
+      342,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      681,
+      328,
+      0,
+      342,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      682,
+      231,
+      0,
+      343,
+      0,
+      "*"
+    ],
+    [
+      683,
+      342,
+      0,
+      343,
+      1,
+      "*"
+    ],
+    [
+      684,
+      343,
+      0,
+      234,
+      1,
+      "GUIDER"
+    ],
+    [
+      685,
+      341,
+      0,
+      343,
+      2,
+      "INT"
+    ],
+    [
+      711,
+      142,
+      0,
+      379,
+      0,
+      "IMAGE"
+    ],
+    [
+      712,
+      122,
+      0,
+      379,
+      1,
+      "INT"
+    ],
+    [
+      713,
+      122,
+      1,
+      379,
+      2,
+      "INT"
+    ],
+    [
+      715,
+      55,
+      0,
+      381,
+      1,
+      "VAE"
+    ],
+    [
+      716,
+      379,
+      0,
+      381,
+      0,
+      "IMAGE"
+    ],
+    [
+      735,
+      379,
+      0,
+      403,
+      0,
+      "IMAGE"
+    ],
+    [
+      759,
+      416,
+      0,
+      231,
+      3,
+      "FLOAT"
+    ],
+    [
+      763,
+      408,
+      0,
+      416,
+      3,
+      "INT"
+    ],
+    [
+      764,
+      419,
+      0,
+      416,
+      0,
+      "*"
+    ],
+    [
+      765,
+      419,
+      0,
+      416,
+      1,
+      "*"
+    ],
+    [
+      766,
+      420,
+      0,
+      416,
+      2,
+      "*"
+    ],
+    [
+      771,
+      427,
+      0,
+      421,
+      0,
+      "*"
+    ],
+    [
+      772,
+      427,
+      0,
+      421,
+      1,
+      "*"
+    ],
+    [
+      773,
+      421,
+      0,
+      229,
+      2,
+      "FLOAT"
+    ],
+    [
+      774,
+      408,
+      0,
+      421,
+      3,
+      "INT"
+    ],
+    [
+      775,
+      53,
+      0,
+      428,
+      0,
+      "*"
+    ],
+    [
+      776,
+      53,
+      0,
+      428,
+      1,
+      "*"
+    ],
+    [
+      777,
+      381,
+      0,
+      428,
+      2,
+      "*"
+    ],
+    [
+      778,
+      428,
+      0,
+      228,
+      4,
+      "LATENT"
+    ],
+    [
+      779,
+      408,
+      0,
+      428,
+      3,
+      "INT"
+    ],
+    [
+      782,
+      149,
+      0,
+      150,
+      0,
+      "STRING"
+    ],
+    [
+      810,
+      227,
+      0,
+      451,
+      0,
+      "*"
+    ],
+    [
+      811,
+      225,
+      0,
+      451,
+      1,
+      "*"
+    ],
+    [
+      812,
+      405,
+      0,
+      451,
+      2,
+      "*"
+    ],
+    [
+      813,
+      408,
+      0,
+      451,
+      3,
+      "INT"
+    ],
+    [
+      814,
+      451,
+      0,
+      149,
+      5,
+      "STRING"
+    ],
+    [
+      817,
+      425,
+      0,
+      454,
+      0,
+      "*"
+    ],
+    [
+      818,
+      426,
+      0,
+      454,
+      1,
+      "*"
+    ],
+    [
+      819,
+      455,
+      0,
+      454,
+      2,
+      "*"
+    ],
+    [
+      821,
+      454,
+      0,
+      421,
+      2,
+      "*"
+    ],
+    [
+      822,
+      453,
+      0,
+      454,
+      3,
+      "INT"
+    ],
+    [
+      825,
+      142,
+      0,
+      149,
+      2,
+      "IMAGE"
+    ],
+    [
+      831,
+      228,
+      0,
+      79,
+      0,
+      "LATENT"
+    ],
+    [
+      834,
+      252,
+      0,
+      234,
+      4,
+      "LATENT"
+    ],
+    [
+      837,
+      323,
+      0,
+      236,
+      1,
+      "INT"
+    ],
+    [
+      840,
+      337,
+      0,
+      329,
+      1,
+      "MASK"
+    ],
+    [
+      844,
+      472,
+      0,
+      471,
+      2,
+      "OPENAI_CHAT_CONFIG"
+    ],
+    [
+      850,
+      471,
+      0,
+      336,
+      0,
+      "STRING"
+    ],
+    [
+      851,
+      471,
+      0,
+      327,
+      0,
+      "STRING"
+    ],
+    [
+      852,
+      79,
+      0,
+      477,
+      0,
+      "*"
+    ],
+    [
+      854,
+      55,
+      0,
+      479,
+      1,
+      "VAE"
+    ],
+    [
+      856,
+      325,
+      0,
+      479,
+      0,
+      "IMAGE"
+    ],
+    [
+      857,
+      479,
+      0,
+      477,
+      1,
+      "*"
+    ],
+    [
+      858,
+      341,
+      0,
+      477,
+      2,
+      "INT"
+    ],
+    [
+      859,
+      477,
+      0,
+      252,
+      0,
+      "*"
+    ],
+    [
+      864,
+      451,
+      0,
+      471,
+      3,
+      "STRING"
+    ],
+    [
+      865,
+      451,
+      0,
+      148,
+      3,
+      "STRING"
+    ],
+    [
+      866,
+      451,
+      0,
+      148,
+      4,
+      "STRING"
+    ],
+    [
+      867,
+      254,
+      0,
+      236,
+      2,
+      "FLOAT"
+    ],
+    [
+      868,
+      191,
+      0,
+      483,
+      0,
+      "*"
+    ],
+    [
+      869,
+      353,
+      0,
+      483,
+      1,
+      "*"
+    ],
+    [
+      870,
+      483,
+      0,
+      254,
+      1,
+      "*"
+    ],
+    [
+      871,
+      341,
+      0,
+      483,
+      2,
+      "INT"
+    ],
+    [
+      875,
+      149,
+      0,
+      494,
+      0,
+      "STRING"
+    ],
+    [
+      876,
+      494,
+      0,
+      148,
+      1,
+      "STRING"
+    ],
+    [
+      877,
+      494,
+      0,
+      148,
+      2,
+      "STRING"
+    ],
+    [
+      878,
+      142,
+      0,
+      495,
+      0,
+      "IMAGE"
+    ],
+    [
+      879,
+      495,
+      0,
+      404,
+      0,
+      "STRING"
+    ],
+    [
+      880,
+      495,
+      0,
+      405,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "Inputs",
+      "bounding": [
+        -2220,
+        -520,
+        550,
+        820
+      ],
+      "color": "#444",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "Settings",
+      "bounding": [
+        -2500,
+        320,
+        830,
+        990
+      ],
+      "color": "#444",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "Ollama Setting",
+      "bounding": [
+        -1660,
+        -220,
+        500,
+        1070
+      ],
+      "color": "#444",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 4,
+      "title": "Text LLM",
+      "bounding": [
+        -1150,
+        -440,
+        1810,
+        610
+      ],
+      "color": "#444",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 5,
+      "title": "Image LLM",
+      "bounding": [
+        -1150,
+        180,
+        1810,
+        670
+      ],
+      "color": "#444",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 6,
+      "title": "HiDream Core",
+      "bounding": [
+        1990,
+        -160,
+        4120,
+        1200
+      ],
+      "color": "#444",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 7,
+      "title": "LanPaint",
+      "bounding": [
+        1990,
+        1050,
+        5130,
+        1200
+      ],
+      "color": "#444",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 8,
+      "title": "HiDream Upscale",
+      "bounding": [
+        6120,
+        -160,
+        5360,
+        1200
+      ],
+      "color": "#444",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 9,
+      "title": "Style LLM",
+      "bounding": [
+        -880,
+        860,
+        1540,
+        960
+      ],
+      "color": "#444",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 10,
+      "title": "LLM Summary",
+      "bounding": [
+        670,
+        180,
+        1310,
+        670
+      ],
+      "color": "#444",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 11,
+      "title": "Image Reszie",
+      "bounding": [
+        -1660,
+        860,
+        770,
+        450
+      ],
+      "color": "#444",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.11781035558328135,
+      "offset": [
+        5771.666666666666,
+        4578.971405877681
+      ]
+    },
+    "frontendVersion": "1.22.2",
+    "groupNodes": {}
+  },
+  "version": 0.4
+}

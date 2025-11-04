@@ -1,0 +1,2326 @@
+{
+  "last_node_id": 1252,
+  "last_link_id": 2264,
+  "nodes": [
+    {
+      "id": 1164,
+      "type": "Create Rect Mask",
+      "pos": [
+        -404.7567443847656,
+        670.0799560546875
+      ],
+      "size": [
+        320,
+        230
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "copy_image_size",
+          "type": "IMAGE",
+          "link": 2245,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            2106,
+            2179
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Create Rect Mask"
+      },
+      "widgets_values": [
+        "percent",
+        "topright",
+        0,
+        0,
+        48,
+        48,
+        512,
+        512
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 1168,
+      "type": "Create Rect Mask",
+      "pos": [
+        235.24325561523438,
+        670.0799560546875
+      ],
+      "size": [
+        320,
+        230
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "copy_image_size",
+          "type": "IMAGE",
+          "link": 2248,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            2110,
+            2191
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Create Rect Mask"
+      },
+      "widgets_values": [
+        "percent",
+        "bottomright",
+        0,
+        0,
+        48,
+        48,
+        512,
+        512
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 1091,
+      "type": "Image Overlay",
+      "pos": [
+        665.6929931640625,
+        -522.203857421875
+      ],
+      "size": [
+        320,
+        290
+      ],
+      "flags": {},
+      "order": 27,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "base_image",
+          "type": "IMAGE",
+          "link": 2066
+        },
+        {
+          "name": "overlay_image",
+          "type": "IMAGE",
+          "link": 1963
+        },
+        {
+          "name": "optional_mask",
+          "type": "MASK",
+          "link": 1974,
+          "shape": 7
+        },
+        {
+          "name": "x_offset",
+          "type": "INT",
+          "link": 2021,
+          "widget": {
+            "name": "x_offset"
+          }
+        },
+        {
+          "name": "y_offset",
+          "type": "INT",
+          "link": 2022,
+          "widget": {
+            "name": "y_offset"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1966,
+            2223
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Image Overlay"
+      },
+      "widgets_values": [
+        "Resize by rescale_factor",
+        "bilinear",
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        70
+      ],
+      "color": "#223",
+      "bgcolor": "#335",
+      "shape": 1
+    },
+    {
+      "id": 1101,
+      "type": "MathExpression|pysssss",
+      "pos": [
+        -204.30702209472656,
+        -522.203857421875
+      ],
+      "size": [
+        210,
+        140
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "INT,FLOAT,IMAGE,LATENT",
+          "link": 2045,
+          "slot_index": 0,
+          "shape": 7
+        },
+        {
+          "name": "b",
+          "type": "INT,FLOAT,IMAGE,LATENT",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "c",
+          "type": "INT,FLOAT,IMAGE,LATENT",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            2048
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MathExpression|pysssss"
+      },
+      "widgets_values": [
+        "ceil(a * 10 / 100)"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 1194,
+      "type": "InvertMask",
+      "pos": [
+        -244.75674438476562,
+        160.0799560546875
+      ],
+      "size": [
+        210,
+        26
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 2153
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            2154
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "InvertMask"
+      },
+      "widgets_values": [],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 1193,
+      "type": "MaskToImage",
+      "pos": [
+        -254.75674438476562,
+        240.0799560546875
+      ],
+      "size": [
+        210,
+        26
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 2154
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            2161
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MaskToImage"
+      },
+      "widgets_values": [],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 1208,
+      "type": "Paste By Mask",
+      "pos": [
+        1235.2432861328125,
+        300.0799560546875
+      ],
+      "size": [
+        342.5999755859375,
+        118
+      ],
+      "flags": {},
+      "order": 28,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image_base",
+          "type": "IMAGE",
+          "link": 2178,
+          "slot_index": 0
+        },
+        {
+          "name": "image_to_paste",
+          "type": "IMAGE",
+          "link": 2215
+        },
+        {
+          "name": "mask",
+          "type": "IMAGE",
+          "link": 2179
+        },
+        {
+          "name": "mask_mapping_optional",
+          "type": "MASK_MAPPING",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            2182
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Paste By Mask"
+      },
+      "widgets_values": [
+        "keep_ratio_fit"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 1209,
+      "type": "Paste By Mask",
+      "pos": [
+        1225.2432861328125,
+        480.0799560546875
+      ],
+      "size": [
+        342.5999755859375,
+        118
+      ],
+      "flags": {},
+      "order": 31,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image_base",
+          "type": "IMAGE",
+          "link": 2182,
+          "slot_index": 0
+        },
+        {
+          "name": "image_to_paste",
+          "type": "IMAGE",
+          "link": 2216
+        },
+        {
+          "name": "mask",
+          "type": "IMAGE",
+          "link": 2190
+        },
+        {
+          "name": "mask_mapping_optional",
+          "type": "MASK_MAPPING",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            2187
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Paste By Mask"
+      },
+      "widgets_values": [
+        "keep_ratio_fit"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 1142,
+      "type": "MathExpression|pysssss",
+      "pos": [
+        1845.2432861328125,
+        180.0799560546875
+      ],
+      "size": [
+        210,
+        140
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "INT,FLOAT,IMAGE,LATENT",
+          "link": 2260,
+          "slot_index": 0,
+          "shape": 7
+        },
+        {
+          "name": "b",
+          "type": "INT,FLOAT,IMAGE,LATENT",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "c",
+          "type": "INT,FLOAT,IMAGE,LATENT",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            2210
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "title": "X",
+      "properties": {
+        "Node name for S&R": "MathExpression|pysssss"
+      },
+      "widgets_values": [
+        "a/8\n"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 1210,
+      "type": "Paste By Mask",
+      "pos": [
+        1225.2432861328125,
+        650.0799560546875
+      ],
+      "size": [
+        342.5999755859375,
+        118
+      ],
+      "flags": {},
+      "order": 32,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image_base",
+          "type": "IMAGE",
+          "link": 2187,
+          "slot_index": 0
+        },
+        {
+          "name": "image_to_paste",
+          "type": "IMAGE",
+          "link": 2217
+        },
+        {
+          "name": "mask",
+          "type": "IMAGE",
+          "link": 2191
+        },
+        {
+          "name": "mask_mapping_optional",
+          "type": "MASK_MAPPING",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            2203,
+            2206
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Paste By Mask"
+      },
+      "widgets_values": [
+        "keep_ratio_fit"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 1166,
+      "type": "Create Rect Mask",
+      "pos": [
+        235.24325561523438,
+        370.0799560546875
+      ],
+      "size": [
+        320,
+        230
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "copy_image_size",
+          "type": "IMAGE",
+          "link": 2247,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            2108,
+            2190
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Create Rect Mask"
+      },
+      "widgets_values": [
+        "percent",
+        "bottomleft",
+        0,
+        0,
+        48,
+        48,
+        512,
+        512
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 1150,
+      "type": "PreviewImage",
+      "pos": [
+        -24.756744384765625,
+        370.0799560546875
+      ],
+      "size": [
+        210,
+        250
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 2093
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": [],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 1165,
+      "type": "PreviewImage",
+      "pos": [
+        -24.756744384765625,
+        670.0799560546875
+      ],
+      "size": [
+        210,
+        250
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 2106
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": [],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 1167,
+      "type": "PreviewImage",
+      "pos": [
+        595.2432250976562,
+        370.0799560546875
+      ],
+      "size": [
+        210,
+        250
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 2108
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": [],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 1205,
+      "type": "Create Solid Color",
+      "pos": [
+        425.2432556152344,
+        130.0799560546875
+      ],
+      "size": [
+        320,
+        150
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 2258,
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 2259,
+          "widget": {
+            "name": "height"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            2177
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Create Solid Color"
+      },
+      "widgets_values": [
+        512,
+        512,
+        "rgba(0, 0, 0, 0)",
+        1,
+        "RGBA"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 1143,
+      "type": "MathExpression|pysssss",
+      "pos": [
+        1855.2432861328125,
+        380.0799560546875
+      ],
+      "size": [
+        210,
+        140
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "INT,FLOAT,IMAGE,LATENT",
+          "link": 2263,
+          "slot_index": 0,
+          "shape": 7
+        },
+        {
+          "name": "b",
+          "type": "INT,FLOAT,IMAGE,LATENT",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "c",
+          "type": "INT,FLOAT,IMAGE,LATENT",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            2211
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "title": "Y",
+      "properties": {
+        "Node name for S&R": "MathExpression|pysssss"
+      },
+      "widgets_values": [
+        "a/8\n"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 1068,
+      "type": "PreviewImage",
+      "pos": [
+        1035.6929931640625,
+        -532.203857421875
+      ],
+      "size": [
+        370,
+        450
+      ],
+      "flags": {},
+      "order": 29,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 1966
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": [],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 1196,
+      "type": "Cut By Mask",
+      "pos": [
+        15.243255615234375,
+        170.0799560546875
+      ],
+      "size": [
+        342.5999755859375,
+        122
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 2160
+        },
+        {
+          "name": "mask",
+          "type": "IMAGE",
+          "link": 2161
+        },
+        {
+          "name": "mask_mapping_optional",
+          "type": "MASK_MAPPING",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            2213
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Cut By Mask"
+      },
+      "widgets_values": [
+        0,
+        0
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 1243,
+      "type": "Reroute",
+      "pos": [
+        -780,
+        390
+      ],
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 2246
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "IMAGE",
+          "links": [
+            2244,
+            2245,
+            2247,
+            2248
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      },
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 1132,
+      "type": "Reroute",
+      "pos": [
+        -800,
+        -230
+      ],
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 2233,
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "IMAGE",
+          "links": [
+            2066,
+            2067,
+            2088
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      },
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 1117,
+      "type": "GetImageSize+",
+      "pos": [
+        -474.3070068359375,
+        -522.203857421875
+      ],
+      "size": [
+        210,
+        66
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 2067
+        }
+      ],
+      "outputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [
+            2045,
+            2068,
+            2258,
+            2260
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            2069,
+            2259,
+            2263
+          ],
+          "slot_index": 1,
+          "shape": 3
+        },
+        {
+          "name": "count",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetImageSize+"
+      },
+      "widgets_values": [],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 1146,
+      "type": "Image Overlay",
+      "pos": [
+        2110,
+        180
+      ],
+      "size": [
+        320,
+        290
+      ],
+      "flags": {},
+      "order": 34,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "base_image",
+          "type": "IMAGE",
+          "link": 2088
+        },
+        {
+          "name": "overlay_image",
+          "type": "IMAGE",
+          "link": 2203
+        },
+        {
+          "name": "optional_mask",
+          "type": "MASK",
+          "link": 2242,
+          "shape": 7
+        },
+        {
+          "name": "x_offset",
+          "type": "INT",
+          "link": 2210,
+          "widget": {
+            "name": "x_offset"
+          }
+        },
+        {
+          "name": "y_offset",
+          "type": "INT",
+          "link": 2211,
+          "widget": {
+            "name": "y_offset"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            2087,
+            2224
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Image Overlay"
+      },
+      "widgets_values": [
+        "Resize by rescale_factor",
+        "bilinear",
+        0.8,
+        0,
+        0,
+        0,
+        0,
+        0,
+        70
+      ],
+      "color": "#223",
+      "bgcolor": "#335",
+      "shape": 1
+    },
+    {
+      "id": 1145,
+      "type": "PreviewImage",
+      "pos": [
+        2460,
+        150
+      ],
+      "size": [
+        750,
+        750
+      ],
+      "flags": {},
+      "order": 35,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 2087
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": [],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 1232,
+      "type": "SaveImage",
+      "pos": [
+        2730,
+        100
+      ],
+      "size": [
+        320,
+        270
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 36,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 2224
+        }
+      ],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "ComfyUI"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 1134,
+      "type": "Image Filter Adjustments",
+      "pos": [
+        -1230,
+        330
+      ],
+      "size": [
+        315,
+        226
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 2071
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            2072
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Image Filter Adjustments"
+      },
+      "widgets_values": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        "false"
+      ],
+      "color": "#332922",
+      "bgcolor": "#593930"
+    },
+    {
+      "id": 1231,
+      "type": "SaveImage",
+      "pos": [
+        1170,
+        -590
+      ],
+      "size": [
+        320,
+        270
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 30,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 2223
+        }
+      ],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "%date:dd-MM-yyyy%/comfyui_"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 1169,
+      "type": "PreviewImage",
+      "pos": [
+        600,
+        670
+      ],
+      "size": [
+        210,
+        250
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 2110
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": [],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 1225,
+      "type": "Image Filter Adjustments",
+      "pos": [
+        850,
+        410
+      ],
+      "size": [
+        315,
+        226
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 2213
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            2214,
+            2215,
+            2216,
+            2217
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Image Filter Adjustments"
+      },
+      "widgets_values": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        "false"
+      ],
+      "color": "#332922",
+      "bgcolor": "#593930"
+    },
+    {
+      "id": 1112,
+      "type": "MathExpression|pysssss",
+      "pos": [
+        420,
+        -520
+      ],
+      "size": [
+        210,
+        140
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "INT,FLOAT,IMAGE,LATENT",
+          "link": 2068,
+          "slot_index": 0,
+          "shape": 7
+        },
+        {
+          "name": "b",
+          "type": "INT,FLOAT,IMAGE,LATENT",
+          "link": 2074,
+          "shape": 7
+        },
+        {
+          "name": "c",
+          "type": "INT,FLOAT,IMAGE,LATENT",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            2021
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "title": "X",
+      "properties": {
+        "Node name for S&R": "MathExpression|pysssss"
+      },
+      "widgets_values": [
+        "a-b-10"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 1115,
+      "type": "MathExpression|pysssss",
+      "pos": [
+        420,
+        -320
+      ],
+      "size": [
+        210,
+        140
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "INT,FLOAT,IMAGE,LATENT",
+          "link": 2069,
+          "slot_index": 0,
+          "shape": 7
+        },
+        {
+          "name": "b",
+          "type": "INT,FLOAT,IMAGE,LATENT",
+          "link": 2075,
+          "shape": 7
+        },
+        {
+          "name": "c",
+          "type": "INT,FLOAT,IMAGE,LATENT",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            2022
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "title": "Y",
+      "properties": {
+        "Node name for S&R": "MathExpression|pysssss"
+      },
+      "widgets_values": [
+        "a-b-10"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 1058,
+      "type": "LoadImage",
+      "pos": [
+        -1350,
+        -280
+      ],
+      "size": [
+        390,
+        420
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            2233,
+            2246
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "ComfyUI_temp_pcmxp_00001_.png",
+        "image"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 1005,
+      "type": "LoadImage",
+      "pos": [
+        -1570,
+        330
+      ],
+      "size": [
+        315,
+        314.0000915527344
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            2071,
+            2160
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            1974,
+            2153
+          ],
+          "slot_index": 1,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "youtube copy.png",
+        "image"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 1094,
+      "type": "ImageResize+",
+      "pos": [
+        55.69298553466797,
+        -522.203857421875
+      ],
+      "size": [
+        320,
+        194
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 2072
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 2048,
+          "slot_index": 1,
+          "widget": {
+            "name": "width"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1963
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [
+            2074
+          ],
+          "slot_index": 1,
+          "shape": 3
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            2075
+          ],
+          "slot_index": 2,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageResize+"
+      },
+      "widgets_values": [
+        128,
+        0,
+        "lanczos",
+        "keep proportion",
+        "if bigger area",
+        0
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 1149,
+      "type": "Create Rect Mask",
+      "pos": [
+        -394.7567443847656,
+        380.0799560546875
+      ],
+      "size": [
+        320,
+        230
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "copy_image_size",
+          "type": "IMAGE",
+          "link": 2244,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            2093,
+            2158
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Create Rect Mask"
+      },
+      "widgets_values": [
+        "percent",
+        "topleft",
+        0,
+        0,
+        48,
+        48,
+        512,
+        512
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 1184,
+      "type": "Paste By Mask",
+      "pos": [
+        1235.2432861328125,
+        120.07994842529297
+      ],
+      "size": [
+        342.5999755859375,
+        118
+      ],
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image_base",
+          "type": "IMAGE",
+          "link": 2177,
+          "slot_index": 0
+        },
+        {
+          "name": "image_to_paste",
+          "type": "IMAGE",
+          "link": 2214
+        },
+        {
+          "name": "mask",
+          "type": "IMAGE",
+          "link": 2158
+        },
+        {
+          "name": "mask_mapping_optional",
+          "type": "MASK_MAPPING",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            2178
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Paste By Mask"
+      },
+      "widgets_values": [
+        "keep_ratio_fit"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 1252,
+      "type": "Load Image Batch",
+      "pos": [
+        -1300,
+        -620
+      ],
+      "size": [
+        315,
+        270
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "name": "filename_text",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Load Image Batch"
+      },
+      "widgets_values": [
+        "incremental_image",
+        1,
+        "fixed",
+        0,
+        "Batch 001",
+        "",
+        "*",
+        "false",
+        "true"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 1220,
+      "type": "SplitImageWithAlpha",
+      "pos": [
+        1610,
+        330
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {},
+      "order": 33,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 2206
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            2242
+          ],
+          "slot_index": 1,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SplitImageWithAlpha"
+      },
+      "widgets_values": [],
+      "color": "#222",
+      "bgcolor": "#000"
+    }
+  ],
+  "links": [
+    [
+      1963,
+      1094,
+      0,
+      1091,
+      1,
+      "IMAGE"
+    ],
+    [
+      1966,
+      1091,
+      0,
+      1068,
+      0,
+      "IMAGE"
+    ],
+    [
+      1974,
+      1005,
+      1,
+      1091,
+      2,
+      "MASK"
+    ],
+    [
+      2021,
+      1112,
+      0,
+      1091,
+      3,
+      "INT"
+    ],
+    [
+      2022,
+      1115,
+      0,
+      1091,
+      4,
+      "INT"
+    ],
+    [
+      2045,
+      1117,
+      0,
+      1101,
+      0,
+      "INT,FLOAT,IMAGE,LATENT"
+    ],
+    [
+      2048,
+      1101,
+      0,
+      1094,
+      1,
+      "INT"
+    ],
+    [
+      2066,
+      1132,
+      0,
+      1091,
+      0,
+      "IMAGE"
+    ],
+    [
+      2067,
+      1132,
+      0,
+      1117,
+      0,
+      "IMAGE"
+    ],
+    [
+      2068,
+      1117,
+      0,
+      1112,
+      0,
+      "INT,FLOAT,IMAGE,LATENT"
+    ],
+    [
+      2069,
+      1117,
+      1,
+      1115,
+      0,
+      "INT,FLOAT,IMAGE,LATENT"
+    ],
+    [
+      2071,
+      1005,
+      0,
+      1134,
+      0,
+      "IMAGE"
+    ],
+    [
+      2072,
+      1134,
+      0,
+      1094,
+      0,
+      "IMAGE"
+    ],
+    [
+      2074,
+      1094,
+      1,
+      1112,
+      1,
+      "INT,FLOAT,IMAGE,LATENT"
+    ],
+    [
+      2075,
+      1094,
+      2,
+      1115,
+      1,
+      "INT,FLOAT,IMAGE,LATENT"
+    ],
+    [
+      2087,
+      1146,
+      0,
+      1145,
+      0,
+      "IMAGE"
+    ],
+    [
+      2088,
+      1132,
+      0,
+      1146,
+      0,
+      "IMAGE"
+    ],
+    [
+      2093,
+      1149,
+      0,
+      1150,
+      0,
+      "IMAGE"
+    ],
+    [
+      2106,
+      1164,
+      0,
+      1165,
+      0,
+      "IMAGE"
+    ],
+    [
+      2108,
+      1166,
+      0,
+      1167,
+      0,
+      "IMAGE"
+    ],
+    [
+      2110,
+      1168,
+      0,
+      1169,
+      0,
+      "IMAGE"
+    ],
+    [
+      2153,
+      1005,
+      1,
+      1194,
+      0,
+      "MASK"
+    ],
+    [
+      2154,
+      1194,
+      0,
+      1193,
+      0,
+      "MASK"
+    ],
+    [
+      2158,
+      1149,
+      0,
+      1184,
+      2,
+      "IMAGE"
+    ],
+    [
+      2160,
+      1005,
+      0,
+      1196,
+      0,
+      "IMAGE"
+    ],
+    [
+      2161,
+      1193,
+      0,
+      1196,
+      1,
+      "IMAGE"
+    ],
+    [
+      2177,
+      1205,
+      0,
+      1184,
+      0,
+      "IMAGE"
+    ],
+    [
+      2178,
+      1184,
+      0,
+      1208,
+      0,
+      "IMAGE"
+    ],
+    [
+      2179,
+      1164,
+      0,
+      1208,
+      2,
+      "IMAGE"
+    ],
+    [
+      2182,
+      1208,
+      0,
+      1209,
+      0,
+      "IMAGE"
+    ],
+    [
+      2187,
+      1209,
+      0,
+      1210,
+      0,
+      "IMAGE"
+    ],
+    [
+      2190,
+      1166,
+      0,
+      1209,
+      2,
+      "IMAGE"
+    ],
+    [
+      2191,
+      1168,
+      0,
+      1210,
+      2,
+      "IMAGE"
+    ],
+    [
+      2203,
+      1210,
+      0,
+      1146,
+      1,
+      "IMAGE"
+    ],
+    [
+      2206,
+      1210,
+      0,
+      1220,
+      0,
+      "IMAGE"
+    ],
+    [
+      2210,
+      1142,
+      0,
+      1146,
+      3,
+      "INT"
+    ],
+    [
+      2211,
+      1143,
+      0,
+      1146,
+      4,
+      "INT"
+    ],
+    [
+      2213,
+      1196,
+      0,
+      1225,
+      0,
+      "IMAGE"
+    ],
+    [
+      2214,
+      1225,
+      0,
+      1184,
+      1,
+      "IMAGE"
+    ],
+    [
+      2215,
+      1225,
+      0,
+      1208,
+      1,
+      "IMAGE"
+    ],
+    [
+      2216,
+      1225,
+      0,
+      1209,
+      1,
+      "IMAGE"
+    ],
+    [
+      2217,
+      1225,
+      0,
+      1210,
+      1,
+      "IMAGE"
+    ],
+    [
+      2223,
+      1091,
+      0,
+      1231,
+      0,
+      "IMAGE"
+    ],
+    [
+      2224,
+      1146,
+      0,
+      1232,
+      0,
+      "IMAGE"
+    ],
+    [
+      2233,
+      1058,
+      0,
+      1132,
+      0,
+      "*"
+    ],
+    [
+      2242,
+      1220,
+      1,
+      1146,
+      2,
+      "MASK"
+    ],
+    [
+      2244,
+      1243,
+      0,
+      1149,
+      0,
+      "IMAGE"
+    ],
+    [
+      2245,
+      1243,
+      0,
+      1164,
+      0,
+      "IMAGE"
+    ],
+    [
+      2246,
+      1058,
+      0,
+      1243,
+      0,
+      "*"
+    ],
+    [
+      2247,
+      1243,
+      0,
+      1166,
+      0,
+      "IMAGE"
+    ],
+    [
+      2248,
+      1243,
+      0,
+      1168,
+      0,
+      "IMAGE"
+    ],
+    [
+      2258,
+      1117,
+      0,
+      1205,
+      0,
+      "INT"
+    ],
+    [
+      2259,
+      1117,
+      1,
+      1205,
+      1,
+      "INT"
+    ],
+    [
+      2260,
+      1117,
+      0,
+      1142,
+      0,
+      "INT,FLOAT,IMAGE,LATENT"
+    ],
+    [
+      2263,
+      1117,
+      1,
+      1143,
+      0,
+      "INT,FLOAT,IMAGE,LATENT"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "Single & Batch Image",
+      "bounding": [
+        -1420,
+        -750,
+        530,
+        960
+      ],
+      "color": "#444",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "Watermark",
+      "bounding": [
+        -1600,
+        240,
+        719,
+        428
+      ],
+      "color": "#444",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "Watermark 2: Mask & Math",
+      "bounding": [
+        -630,
+        0,
+        3898,
+        943
+      ],
+      "color": "#444",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 4,
+      "title": "Watermark 1: Mask & Math",
+      "bounding": [
+        -630,
+        -720,
+        2181,
+        691
+      ],
+      "color": "#444",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.6490547151887455,
+      "offset": [
+        1998.3639590280243,
+        953.3963199158886
+      ]
+    }
+  },
+  "version": 0.4
+}

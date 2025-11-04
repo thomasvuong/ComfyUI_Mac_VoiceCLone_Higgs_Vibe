@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+.venv/
+venv/
+.env
+.env*
+
+# PyTorch / TorchScript artifacts
+*.pt
+*.pth
+*.safetensors
+*.bin
+*.gguf
+
+# ONNX
+*.onnx
+
+# ComfyUI outputs and temp
+output/
+video/
+
+user/default/
+
+# Ignore the whole models directory (large binaries). If you prefer to track some
+# small model helper files, adjust this rule accordingly.
+models/
+
+# Node binaries, caches
+*.cache
+__pycache__/
+*.log
+
+# macOS
+.DS_Store
+
+# Local config
+custom_nodes/**/config.example.yaml
+custom_nodes/**/install.bat
+
+# Ignore local secrets
+*.pem
+*.key
+
+# Do not ignore the custom_nodes Python code and the core repo files
+# (We intentionally only exclude large model/checkpoint directories and outputs.)
+custom_nodes/**/config.example.yaml

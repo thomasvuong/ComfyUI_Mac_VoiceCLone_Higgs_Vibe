@@ -1,0 +1,224 @@
+# ComfyUI-RMBG
+# Patched to integrate U2Net
+
+import os
+import torch
+from PIL import Image, ImageFilter
+from torchvision import transforms
+import numpy as np
+import folder_paths
+import torch.nn.functional as F
+from huggingface_hub import hf_hub_download
+import sys
+import importlib.util
+import types
+import cv2
+
+device = "cuda" if torch.cuda.is_available() else "cpu"
+
+folder_paths.add_model_folder_path("rmbg", os.path.join(folder_paths.models_dir, "RMBG"))
+
+# Model configuration
+AVAILABLE_MODELS = {
+    "RMBG-2.0": {
+        "type": "rmbg",
+        "repo_id": "1038lab/RMBG-2.0",
+        "files": {
+            "config.json": "config.json",
+            "model.safetensors": "model.safetensors",
+            "birefnet.py": "birefnet.py",
+            "BiRefNet_config.py": "BiRefNet_config.py"
+        },
+        "cache_dir": "RMBG-2.0"
+    },
+    "INSPYRENET": {
+        "type": "inspyrenet",
+        "repo_id": "1038lab/inspyrenet",
+        "files": {
+            "inspyrenet.safetensors": "inspyrenet.safetensors"
+        },
+        "cache_dir": "INSPYRENET"
+    },
+    "BEN": {
+        "type": "ben",
+        "repo_id": "1038lab/BEN",
+        "files": {
+            "model.py": "model.py",
+            "BEN_Base.pth": "BEN_Base.pth"
+        },
+        "cache_dir": "BEN"
+    },
+    "U2Net": {
+        "type": "u2net",
+        "repo_id": "",
+        "files": {
+            "model.py": "model.py",
+            "u2net.pth": "u2net.pth"
+        },
+        "cache_dir": "U2Net"
+    },
+    "BEN2": {
+        "type": "ben2",
+        "repo_id": "1038lab/BEN2",
+        "files": {
+            "BEN2_Base.pth": "BEN2_Base.pth",
+            "BEN2.py": "BEN2.py"
+        },
+        "cache_dir": "BEN2"
+    }
+}
+
+# Utility functions
+def tensor2pil(image):
+    return Image.fromarray(np.clip(255. * image.cpu().numpy().squeeze(), 0, 255).astype(np.uint8))
+
+def pil2tensor(image):
+    return torch.from_numpy(np.array(image).astype(np.float32) / 255.0).unsqueeze(0)
+
+def handle_model_error(message):
+    print(f"[RMBG ERROR] {message}")
+    raise RuntimeError(message)
+
+class BaseModelLoader:
+    def __init__(self):
+        self.model = None
+        self.current_model_version = None
+        self.base_cache_dir = os.path.join(folder_paths.models_dir, "RMBG")
+    
+    def get_cache_dir(self, model_name):
+        cache_path = os.path.join(self.base_cache_dir, AVAILABLE_MODELS[model_name]["cache_dir"])
+        os.makedirs(cache_path, exist_ok=True)
+        return cache_path
+    
+    def check_model_cache(self, model_name):
+        model_info = AVAILABLE_MODELS[model_name]
+        cache_dir = self.get_cache_dir(model_name)
+        missing_files = []
+        for filename in model_info["files"].keys():
+            if not os.path.exists(os.path.join(cache_dir, model_info["files"][filename])):
+                missing_files.append(filename)
+        if missing_files:
+            return False, f"Missing model files: {', '.join(missing_files)}"
+        return True, "Model cache verified"
+    
+    def download_model(self, model_name):
+        model_info = AVAILABLE_MODELS[model_name]
+        cache_dir = self.get_cache_dir(model_name)
+        try:
+            os.makedirs(cache_dir, exist_ok=True)
+            for filename in model_info["files"].keys():
+                hf_hub_download(
+                    repo_id=model_info["repo_id"],
+                    filename=filename,
+                    local_dir=cache_dir
+                )
+            return True, "Model files downloaded successfully"
+        except Exception as e:
+            return False, f"Error downloading model files: {str(e)}"
+    
+    def clear_model(self):
+        if self.model is not None:
+            self.model.cpu()
+            del self.model
+            import gc
+            gc.collect()
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
+        self.model = None
+        self.current_model_version = None
+
+class BENModel(BaseModelLoader):
+    """Used for BEN, BEN2, and now U2Net"""
+    def __init__(self):
+        super().__init__()
+
+    def load_model(self, model_name):
+        if self.current_model_version != model_name:
+            self.clear_model()
+            cache_dir = self.get_cache_dir(model_name)
+            model_path = os.path.join(cache_dir, "model.py")
+            module_name = f"custom_model_{hash(model_path)}"
+            spec = importlib.util.spec_from_file_location(module_name, model_path)
+            model_module = importlib.util.module_from_spec(spec)
+            sys.modules[module_name] = model_module
+            spec.loader.exec_module(model_module)
+
+            if model_name == "BEN":
+                weights_path = os.path.join(cache_dir, "BEN_Base.pth")
+            elif model_name == "BEN2":
+                weights_path = os.path.join(cache_dir, "BEN2_Base.pth")
+            elif model_name == "U2Net":
+                weights_path = os.path.join(cache_dir, "u2net.pth")
+            else:
+                handle_model_error(f"Unknown model for BEN loader: {model_name}")
+
+            self.model = model_module.BEN_Base()  # class inside model.py
+            if hasattr(self.model, "loadcheckpoints"):
+                self.model.loadcheckpoints(weights_path)
+            else:
+                state_dict = torch.load(weights_path, map_location="cpu")
+                self.model.load_state_dict(state_dict)
+
+            self.model.eval()
+            for param in self.model.parameters():
+                param.requires_grad = False
+            self.model.to(device)
+            self.current_model_version = model_name
+
+    def process_image(self, image, model_name, params):
+        try:
+            self.load_model(model_name)
+            orig_image = tensor2pil(image)
+            w, h = orig_image.size
+            aspect_ratio = h / w
+            new_w = params["process_res"]
+            new_h = int(params["process_res"] * aspect_ratio)
+            resized_image = orig_image.resize((new_w, new_h), Image.LANCZOS)
+            processed_input = resized_image.convert("RGBA")
+            with torch.no_grad():
+                _, foreground = self.model.inference(processed_input)
+            foreground = foreground.resize((w, h), Image.LANCZOS)
+            mask = foreground.split()[-1]
+            return mask
+        except Exception as e:
+            handle_model_error(f"Error in {model_name} processing: {str(e)}")
+
+# For simplicity, BEN2Model class can now inherit from BENModel
+class BEN2Model(BENModel):
+    pass
+
+class RMBG:
+    def __init__(self):
+        self.models = {
+            "BEN": BENModel(),
+            "BEN2": BEN2Model(),
+            "U2Net": BENModel()  # same loader works for U2Net
+        }
+
+    @classmethod
+    def INPUT_TYPES(s):
+        return {
+            "required": {
+                "image": ("IMAGE", {"tooltip": "Input image"}),
+                "model": (list(AVAILABLE_MODELS.keys()), {"tooltip": "Select model"}),
+            },
+            "optional": {
+                "sensitivity": ("FLOAT", {"default": 1.0, "min":0.0, "max":1.0, "step":0.01}),
+                "process_res": ("INT", {"default":1024, "min":256, "max":2048, "step":8}),
+            }
+        }
+
+    RETURN_TYPES = ("IMAGE", "MASK", "MASK_IMAGE")
+    FUNCTION = "process_image"
+
+    def process_image(self, image, model, **params):
+        try:
+            model_instance = self.models[model]
+            mask = model_instance.process_image(image, model, params)
+            return image, pil2tensor(mask), pil2tensor(mask)
+        except Exception as e:
+            handle_model_error(f"Error in image processing: {str(e)}")
+            return image, torch.zeros_like(image), torch.zeros_like(image)
+
+NODE_CLASS_MAPPINGS = {"RMBG": RMBG}
+NODE_DISPLAY_NAME_MAPPINGS = {"RMBG": "Remove Background (RMBG)"}
