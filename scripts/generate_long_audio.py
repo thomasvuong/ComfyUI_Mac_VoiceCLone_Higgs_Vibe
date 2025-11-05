@@ -169,8 +169,30 @@ def load_reference_audio(audio_path: str) -> Dict:
 
 
 def add_voice_primer(text: str) -> str:
-    """Add a short primer to help establish the voice at the start."""
-    primer = "Reading begins. "
+    """Add a short primer to help establish the voice at the start.
+
+    The primer is localized when Vietnamese is detected so the model is not
+    biased by an English prefix which can cause short/blank outputs for non-
+    English inputs.
+    """
+    # simple Vietnamese detection: look for common Vietnamese diacritics/words
+    def looks_like_vietnamese(s: str) -> bool:
+        vi_chars = set('àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ')
+        # quick scan first 200 chars
+        sample = s[:200].lower()
+        for ch in sample:
+            if ch in vi_chars:
+                return True
+        # fallback: check for some common Vietnamese words
+        for w in ('và', 'nhưng', 'không', 'anh', 'chị', 'tôi', 'của'):
+            if f' {w} ' in f' {sample} ':
+                return True
+        return False
+
+    if looks_like_vietnamese(text):
+        primer = "Bắt đầu đọc. "
+    else:
+        primer = "Reading begins. "
     return primer + text
 
 
