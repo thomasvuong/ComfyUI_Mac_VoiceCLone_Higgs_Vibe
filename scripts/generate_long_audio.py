@@ -156,14 +156,31 @@ def estimate_speech_seconds_from_text(text: str) -> float:
 def load_reference_audio(audio_path: str) -> Dict:
     """Load reference audio file and convert to ComfyUI format."""
     import torch
+    import torchaudio.functional as F
     data, sample_rate = sf.read(audio_path, dtype='float32')
     # Convert to tensor and reshape to [batch, channel, time]
     if len(data.shape) == 1:
-        waveform = torch.from_numpy(data).unsqueeze(0).unsqueeze(0)
+        wav = torch.from_numpy(data).unsqueeze(0).unsqueeze(0)
     else:
-        waveform = torch.from_numpy(data.T).unsqueeze(0)  # Transpose for channel-first
+        # soundfile returns (frames, channels) -> transpose to (channels, frames)
+        wav = torch.from_numpy(data.T).unsqueeze(0)
+
+    # Convert to mono by averaging channels if necessary
+    if wav.shape[1] > 1:
+        wav = wav.mean(dim=1, keepdim=True)
+
+    # Resample to model sample rate if needed
+    if sample_rate != SAMPLE_RATE:
+        wav = F.resample(wav.squeeze(0), orig_freq=sample_rate, new_freq=SAMPLE_RATE).unsqueeze(0)
+        sample_rate = SAMPLE_RATE
+
+    # Normalize peak to 0.9 to avoid clipping artifacts
+    peak = wav.abs().max()
+    if peak > 0:
+        wav = wav * (0.9 / float(peak))
+
     return {
-        "waveform": waveform.float(),
+        "waveform": wav.float(),
         "sample_rate": sample_rate
     }
 
@@ -205,11 +222,7 @@ def generate_from_file(model_path: str, tokenizer_path: str, input_file: str, ou
     with open(input_file, 'r', encoding='utf-8') as f:
         text = f.read()
     
-    # Add voice primer
-    text = add_voice_primer(text)
-
-    chunks = split_text_into_chunks(text, CHUNK_CHAR_SIZE)
-    print(f"Split input into {len(chunks)} chunk(s) (approx {CHUNK_CHAR_SIZE} chars per chunk)")
+    chunks = None
 
     # prepare engine (allow injection for unit tests)
     if engine_factory is None:
@@ -232,6 +245,14 @@ def generate_from_file(model_path: str, tokenizer_path: str, input_file: str, ou
     if reference_audio:
         reference = load_reference_audio(reference_audio)
         print(f"Loaded reference audio: {reference_audio}")
+
+    # Add voice primer only if there is no reference audio (avoid language mismatch)
+    if reference is None:
+        text = add_voice_primer(text)
+
+    # now split into chunks
+    chunks = split_text_into_chunks(text, CHUNK_CHAR_SIZE)
+    print(f"Split input into {len(chunks)} chunk(s) (approx {CHUNK_CHAR_SIZE} chars per chunk)")
 
     # prepare streaming/temp paths if requested
     if tmp_base is None:
